@@ -1,0 +1,18 @@
+{
+  "name": "gwent-lazy-bot",
+  "version": "0.0.1",
+  "description": "Very Lazy Implementation for a GWENT Card Bot",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MasterAbdoTGM50/gwent-lazy-bot.git"
+  },
+  "author": "MasterAbdoTGM50",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^11.5.1"
+  }
+}
