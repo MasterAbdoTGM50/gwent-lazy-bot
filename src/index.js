@@ -8,6 +8,10 @@ const config = require("./config");
 let cards = [];
 let fuse;
 
+let creditsMsg = "Big thanks to teddybee_r for making gwent.one the source for the displayed card data. He's the true" +
+    " hero behind this bot ^^\nThanks to Pinkie the Smart Elf for the amazing Profile Picture of the bot!\n" +
+    "Also thanks to Jemoni and Martin for being the maintaners of the bot in the author's absence";
+
 client.once("ready", () => {
     updateCards();
     console.log("GWENT Lazy Bot reporting for duty!");
@@ -43,6 +47,8 @@ client.on("message", message => {
 
     if(message.content === "!lazy_update") {
         updateCards();
+    } else if(message.content === "!lazy_credits") {
+        message.channel.send(creditsMsg);
     } else {
         let regex = /\[(.*?)]/g;
 
