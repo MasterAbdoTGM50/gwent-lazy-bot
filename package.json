@@ -13,6 +13,7 @@
   "author": "MasterAbdoTGM50",
   "license": "MIT",
   "dependencies": {
-    "discord.js": "^11.5.1"
+    "discord.js": "^11.5.1",
+    "fuse.js": "^3.4.5"
   }
 }
