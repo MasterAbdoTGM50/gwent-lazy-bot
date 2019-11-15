@@ -13,10 +13,7 @@ let creditsMsg =
     "**Jemoni:** Maintaining the bot in the author's absence and helping in the amazing profile picture of the bot!\n" +
     "**Mortin:** Maintaining the bot in the author's absence";
 
-client.once("ready", () => {
-    updateCards();
-    console.log("GWENT Lazy Bot reporting for duty!");
-});
+client.once("ready", updateCards);
 
 function updateCards() {
     axios.get("https://gwent.one/cardbot").then(res => {
@@ -39,8 +36,6 @@ function updateCards() {
         };
 
         fuse = new Fuse(cards, options);
-
-        console.log("GWENT Lazy Bot 'updated' for duty!");
     });
 }
 
