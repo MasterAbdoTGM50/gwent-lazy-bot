@@ -4,6 +4,8 @@ const Fuse = require("fuse.js");
 const axios = require("axios");
 const client = new Discord.Client();
 
+const nicknames = require("./nicknames");
+
 let cards = [];
 let fuse;
 
@@ -20,6 +22,8 @@ client.once("ready", updateCards);
 function updateCards() {
     axios.get("https://gwent.one/cardbot").then(res => {
         let _cards = [];
+        _cards.push(...nicknames.fuzzy);
+
         Object.values(res.data).forEach((card) => {
             _cards.push(card);
         });
@@ -61,7 +65,9 @@ client.on("message", message => {
         }
 
         matches.forEach((match) => {
-            let result = fuse.search(match);
+
+            let result = nicknames.exact.filter(card => card.name === match.toLowerCase());
+            if(result.length === 0) { result = fuse.search(match); }
             if(result.length !== 0) {
                 message.channel.send("https://gwent.one/en/card/" + result[0].id);
             }
