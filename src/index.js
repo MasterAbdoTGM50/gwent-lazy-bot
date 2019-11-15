@@ -3,7 +3,6 @@ const Fuse = require("fuse.js");
 
 const axios = require("axios");
 const client = new Discord.Client();
-const config = require("./config");
 
 let cards = [];
 let fuse;
@@ -66,4 +65,4 @@ client.on("message", message => {
     }
 });
 
-client.login(config.token);
+client.login(process.env.DISCORD_TOKEN);
