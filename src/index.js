@@ -7,9 +7,11 @@ const client = new Discord.Client();
 let cards = [];
 let fuse;
 
-let creditsMsg = "Big thanks to teddybee_r for making gwent.one the source for the displayed card data. He's the true" +
-    " hero behind this bot ^^\nThanks to Pinkie the Smart Elf for the amazing Profile Picture of the bot!\n" +
-    "Also thanks to Jemoni and Mortin for being the maintaners of the bot in the author's absence";
+let creditsMsg =
+    "**teddybee_r:** Making gwent.one the source for the displayed card data. He's the true hero behind this bot ^^\n" +
+    "**Pinkie the Smart Elf:** The amazing profile picture of the bot!\n" +
+    "**Jemoni:** Maintaining the bot in the author's absence and helping in the amazing profile picture of the bot!\n" +
+    "**Mortin:** Maintaining the bot in the author's absence";
 
 client.once("ready", () => {
     updateCards();
