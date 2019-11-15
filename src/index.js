@@ -7,6 +7,8 @@ const client = new Discord.Client();
 let cards = [];
 let fuse;
 
+let commandPrefix = "!lazy";
+
 let creditsMsg =
     "**teddybee_r:** Making gwent.one the source for the displayed card data. He's the true hero behind this bot ^^\n" +
     "**Pinkie the Smart Elf:** The amazing profile picture of the bot!\n" +
@@ -41,10 +43,15 @@ function updateCards() {
 
 client.on("message", message => {
 
-    if(message.content === "!lazy_update") {
-        updateCards();
-    } else if(message.content === "!lazy_credits") {
-        message.channel.send(creditsMsg);
+    if(message.content.startsWith(commandPrefix)) {
+        let args = message.content.slice(commandPrefix.length + 1).split(/ +/);
+        let command = args.shift().toLowerCase();
+
+        if(command === "update") {
+            updateCards();
+        } else if(command === "credits") {
+            message.channel.send(creditsMsg);
+        }
     } else {
         let regex = /\[(.*?)]/g;
 
