@@ -31,6 +31,7 @@ function updateCards() {
 
         const options = {
             shouldSort: true,
+            tokenize: true,
             threshold: 0.25,
             location: 0,
             distance: 100,
