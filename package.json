@@ -2,9 +2,9 @@
   "name": "gwent-lazy-bot",
   "version": "0.0.1",
   "description": "Very Lazy Implementation for a GWENT Card Bot",
-  "main": "index.js",
+  "main": "bot.js",
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node bot.js"
   },
   "repository": {
     "type": "git",
