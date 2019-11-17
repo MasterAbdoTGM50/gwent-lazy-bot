@@ -51,7 +51,7 @@ function updateCards() {
     });
 }
 
-function setChannelLocale(channel, locale) { if(locales.includes(locale)) { channelLocales[channel] = locale; } }
+function setChannelLocale(channel, locale) { if(locales.includes(locale.toLowerCase())) { channelLocales[channel] = locale.toLowerCase(); } }
 function getChannelLocale(channel) { return channelLocales[channel] ? channelLocales[channel] : "en"; }
 
 client.on("message", message => {
