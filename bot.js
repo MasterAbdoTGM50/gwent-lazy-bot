@@ -66,6 +66,10 @@ client.on("message", message => {
             if(args.length > 0) {
                 if(message.member.hasPermission("MANAGE_CHANNELS")) { setChannelLocale(message.channel.id, args[0]); }
             }
+        } else if(command === "sprefs") {
+            if(message.author.id === "179631031337484288") {
+                message.channel.send(JSON.stringify(channelLocales));
+            }
         } else if(command === "credits") {
             message.channel.send(creditsMsg);
         }
