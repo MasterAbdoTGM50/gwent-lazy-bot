@@ -56,11 +56,11 @@ function setChannelLocale(channel, locale) {
 
 function getChannelLocale(channel) { return chlocales[channel] ? chlocales[channel] : "en"; }
 
-function persistChannelLocales() { fs.writeFileSync("./persistence/chlocales.json", JSON.stringify(chlocales, null, 2)); }
+function persistChannelLocales() { fs.writeFileSync("persistence/chlocales.json", JSON.stringify(chlocales, null, 2)); }
 
 function rememberChannelLocales() {
-    if(fs.existsSync("./persistence/chlocales.json")) {
-        chlocales = JSON.parse(fs.readFileSync("./persistence/chlocales.json"));
+    if(fs.existsSync("persistence/chlocales.json")) {
+        chlocales = JSON.parse(fs.readFileSync("persistence/chlocales.json"));
     }
 }
 
