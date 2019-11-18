@@ -78,7 +78,7 @@ client.on("message", message => {
             }
         } else if(command === "gclprefs") {
             if(message.author.id === "179631031337484288") {
-                message.channel.send(JSON.stringify(channelLocales));
+                message.channel.send(JSON.stringify(chlocales));
             }
         } else if(command === "credits") {
             message.channel.send(lib.strings.credits);
