@@ -1,0 +1,7 @@
+{
+  "strings": {
+    "prefix": "!lazy",
+    "credits": "**teddybee_r:** Making gwent.one the source for the displayed card data. He's the true hero behind this bot ^^\n**Pinkie the Smart Elf:** The amazing profile picture of the bot!\n**Jemoni:** Maintaining the bot in the author's absence and helping in the amazing profile picture of the bot!\n**Mortin:** Maintaining the bot in the author's absence"
+  },
+  "locales": ["en", "cn", "de", "es", "fr", "it", "jp", "kr", "mx", "pl", "pt", "ru"]
+}

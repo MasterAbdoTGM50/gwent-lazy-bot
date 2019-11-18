@@ -1,26 +1,22 @@
 const Discord = require("discord.js");
 const Fuse = require("fuse.js");
+const fs = require("fs");
 
 const axios = require("axios");
 const client = new Discord.Client();
 
-const locales = ["en", "cn", "de", "es", "fr", "it", "jp", "kr", "mx", "pl", "pt", "ru"];
-const nicknames = require("./nicknames");
+const lib = require("./data/lib");
+const nicknames = require("./data/nicknames");
 
-let channelLocales = {};
+let chlocales = {};
 
 let cards = {};
 let fuses = {};
 
-const commandPrefix = "!lazy";
-
-const creditsMsg =
-    "**teddybee_r:** Making gwent.one the source for the displayed card data. He's the true hero behind this bot ^^\n" +
-    "**Pinkie the Smart Elf:** The amazing profile picture of the bot!\n" +
-    "**Jemoni:** Maintaining the bot in the author's absence and helping in the amazing profile picture of the bot!\n" +
-    "**Mortin:** Maintaining the bot in the author's absence";
-
-client.once("ready", updateCards);
+client.once("ready", () => {
+    updateCards();
+    rememberChannelLocales();
+});
 
 function updateCards() {
     axios.get("https://gwent.one/cardbot").then(res => {
@@ -35,7 +31,7 @@ function updateCards() {
             keys: ["name"]
         };
 
-        locales.forEach(locale => {
+        lib.locales.forEach(locale => {
             let _cards = [];
 
             Object.values(res.data).forEach(card => {
@@ -51,13 +47,27 @@ function updateCards() {
     });
 }
 
-function setChannelLocale(channel, locale) { if(locales.includes(locale.toLowerCase())) { channelLocales[channel] = locale.toLowerCase(); } }
-function getChannelLocale(channel) { return channelLocales[channel] ? channelLocales[channel] : "en"; }
+function setChannelLocale(channel, locale) {
+    if(lib.locales.includes(locale.toLowerCase())) {
+        chlocales[channel] = locale.toLowerCase();
+        persistChannelLocales();
+    }
+}
+
+function getChannelLocale(channel) { return chlocales[channel] ? chlocales[channel] : "en"; }
+
+function persistChannelLocales() { fs.writeFileSync("./persistence/chlocales.json", JSON.stringify(chlocales, null, 2)); }
+
+function rememberChannelLocales() {
+    if(fs.existsSync("./persistence/chlocales.json")) {
+        chlocales = JSON.parse(fs.readFileSync("./persistence/chlocales.json"));
+    }
+}
 
 client.on("message", message => {
 
-    if(message.content.startsWith(commandPrefix)) {
-        let args = message.content.slice(commandPrefix.length + 1).split(/ +/);
+    if(message.content.startsWith(lib.strings.prefix)) {
+        let args = message.content.slice(lib.strings.prefix.length + 1).split(/ +/);
         let command = args.shift().toLowerCase();
 
         if(command === "update") {
@@ -66,12 +76,8 @@ client.on("message", message => {
             if(args.length > 0) {
                 if(message.member.hasPermission("MANAGE_CHANNELS")) { setChannelLocale(message.channel.id, args[0]); }
             }
-        } else if(command === "gprefs") {
-            if(message.author.id === "179631031337484288") {
-                message.channel.send(JSON.stringify(channelLocales));
-            }
         } else if(command === "credits") {
-            message.channel.send(creditsMsg);
+            message.channel.send(lib.strings.credits);
         }
     } else {
         const locale = getChannelLocale(message.channel.id);
