@@ -17,6 +17,7 @@
     { "id": "142214", "name": "vedrai" },
     { "id": "162105", "name": "facenapalm" },
     { "id": "152402", "name": "denerlx" },
+    { "id": "142105", "name": "rosolaccio" },
     { "id": "202445", "name": "geniy" },
     { "id": "200038", "name": "larry" },
     { "id": "202313", "name": "garunah" },
@@ -27,7 +28,8 @@
     { "id": "112103", "name": "geralt" },
     { "id": "112108", "name": "yennefer" },
     { "id": "112106", "name": "triss" },
-    { "id": "142105", "name": "zoltan" }
+    { "id": "142105", "name": "zoltan" },
+    { "id": "132105", "name": "avallach" }
   ],
   "fuzzy": {
     "global": [
