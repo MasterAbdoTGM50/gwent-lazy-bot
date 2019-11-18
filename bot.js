@@ -26,9 +26,10 @@ function updateCards() {
     axios.get("https://gwent.one/cardbot").then(res => {
         const options = {
             shouldSort: true,
+            tokenize: true,
             threshold: 0.25,
             location: 0,
-            distance: 16,
+            distance: 32,
             maxPatternLength: 32,
             minMatchCharLength: 3,
             keys: ["name"]

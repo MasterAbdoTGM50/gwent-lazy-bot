@@ -29,7 +29,8 @@
     { "id": "112108", "name": "yennefer" },
     { "id": "112106", "name": "triss" },
     { "id": "142105", "name": "zoltan" },
-    { "id": "132105", "name": "avallach" }
+    { "id": "132105", "name": "avallach" },
+    { "id": "112215", "name": "iris" }
   ],
   "fuzzy": {
     "global": [
