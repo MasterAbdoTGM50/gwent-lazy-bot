@@ -91,7 +91,7 @@ client.on("message", message => {
             if(results.length !== 0) {
                 message.channel.send("https://gwent.one/" + locale + "/card/" + results[0].id);
             } else {
-                let _locales = [...locales];
+                let _locales = [...lib.locales];
                 _locales.sort((a, b) => a === locale ? -1 : b === locale ? 1 : 0);
 
                 let results = [];
