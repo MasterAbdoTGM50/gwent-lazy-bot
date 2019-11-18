@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const Fuse = require("fuse.js");
 const fs = require("fs");
+const path = require('path');
 
 const axios = require("axios");
 const client = new Discord.Client();
@@ -56,11 +57,11 @@ function setChannelLocale(channel, locale) {
 
 function getChannelLocale(channel) { return chlocales[channel] ? chlocales[channel] : "en"; }
 
-function persistChannelLocales() { fs.writeFileSync("persistence/chlocales.json", JSON.stringify(chlocales, null, 2)); }
+function persistChannelLocales() { fs.writeFileSync(path.join(__dirname, "persistence/chlocales.json"), JSON.stringify(chlocales, null, 2)); }
 
 function rememberChannelLocales() {
-    if(fs.existsSync("persistence/chlocales.json")) {
-        chlocales = JSON.parse(fs.readFileSync("persistence/chlocales.json"));
+    if(fs.existsSync(path.join(__dirname, "persistence/chlocales.json"))) {
+        chlocales = JSON.parse(fs.readFileSync(path.join(__dirname, "persistence/chlocales.json")));
     }
 }
 
