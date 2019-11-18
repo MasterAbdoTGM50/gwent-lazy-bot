@@ -23,7 +23,7 @@ const creditsMsg =
 client.once("ready", updateCards);
 
 function updateCards() {
-    axios.get("https://gwent.one/cardbotTesting").then(res => {
+    axios.get("https://gwent.one/cardbot").then(res => {
         const options = {
             shouldSort: true,
             tokenize: true,
