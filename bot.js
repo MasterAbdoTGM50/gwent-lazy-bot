@@ -92,7 +92,9 @@ client.on("message", message => {
         const regex = /\[(.*?)]/g;
 
         let matches = [], match;
-        while ((match = regex.exec(message.content)) !== null) { matches.push(match[1]); }
+        while ((match = regex.exec(message.content)) !== null) {
+            if(match[1].trim() !== "")  { matches.push(match[1].trim()); }
+        }
 
         matches.forEach(match => {
             let results = nicknames.exact.filter(card => card.name === match.toLowerCase());
