@@ -39,8 +39,11 @@ function updateCards() {
                 _cards.push({ id: card.id, name: card[locale] })
             });
 
-            _cards.push(...nicknames.fuzzy.global);
-            if(nicknames.fuzzy[locale]) { _cards.push(...nicknames.fuzzy[locale]); }
+            Object.values(nicknames.fuzzy).forEach(nickname => {
+                if(nickname[locale]) {
+                    _cards.push({ id: nickname.id, name: nickname[locale] })
+                }
+            });
 
             cards[locale] = _cards;
             fuses[locale] = new Fuse(cards[locale], options);
