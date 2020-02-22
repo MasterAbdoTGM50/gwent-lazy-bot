@@ -121,7 +121,11 @@ client.on("message", message => {
                 message.channel.send(JSON.stringify(chlocales));
             }
         } else if(command === "deck") {
-            parseDeckAsEmbed(args[0]).then(msg => message.channel.send(msg));
+            const regex = /(https:\/\/www.playgwent.com\/en\/decks\/[a-z0-9]*)/g;
+            const found = args[0].match(regex);
+            if(found !== null) {
+                parseDeckAsEmbed(found[0]).then(msg => message.channel.send(msg));
+            }
         } else if(command === "last") {
             message.channel.fetchMessages({ limit: 100 }).then(messages => {
                 const msgs = messages.array();
