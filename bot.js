@@ -130,7 +130,7 @@ client.on("message", message => {
                 message.channel.send(JSON.stringify(chlocales));
             }
         } else if(command === "deck") {
-            const regex = /(https:\/\/www\.playgwent\.com\/en\/decks\/((guides\/[0-9]*)|([a-z0-9]*)))/g;
+            const regex = /(https:\/\/www\.playgwent\.com\/[a-z][a-z]\/decks\/((guides\/[0-9]*)|([a-z0-9]*)))/g;
             const found = args[0].match(regex);
             if(found !== null) {
                 parseDeckAsEmbed(found[0]).then(msg => message.channel.send(msg));
@@ -138,7 +138,7 @@ client.on("message", message => {
         } else if(command === "last") {
             message.channel.fetchMessages({ limit: 100 }).then(messages => {
                 const msgs = messages.array();
-                const regex = /(https:\/\/www\.playgwent\.com\/en\/decks\/((guides\/[0-9]*)|([a-z0-9]*)))/g;
+                const regex = /(https:\/\/www\.playgwent\.com\/[a-z][a-z]\/decks\/((guides\/[0-9]*)|([a-z0-9]*)))/g;
                 for(let i = 0; i < msgs.length; ++i) {
                     const found = msgs[i].content.match(regex);
                     if(found !== null) {
