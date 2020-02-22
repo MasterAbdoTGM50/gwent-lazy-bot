@@ -79,7 +79,15 @@ function parseDeckAsEmbed(link) {
 
             deck.cards.sort((a, b) => (b.provisionsCost - a.provisionsCost));
             const golds = deck.cards.filter(c => c.cardGroup === "gold").map(c => c.localizedName).join("\n");
-            const bronzes = deck.cards.filter(c => c.cardGroup === "bronze").map(c => (c.repeatCount + 1) + "x " + c.localizedName).join("\n");
+            let bronzes;
+
+            let shupe = deck.cards.filter(c => c.repeatCount > 0).length === 0;
+            if(shupe) {
+                bronzes = deck.cards.filter(c => c.cardGroup === "bronze").map(c => c.localizedName).join("\n");
+            } else {
+                bronzes = deck.cards.filter(c => c.cardGroup === "bronze").map(c => (c.repeatCount + 1) + "x " + c.localizedName).join("\n");
+            }
+
             msg.addField("Golds", golds, true);
             msg.addField("Bronzes", bronzes, true);
 
