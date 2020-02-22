@@ -62,6 +62,17 @@ function parseDeckAsEmbed(link) {
             const msg = new Discord.RichEmbed();
             msg.setTitle(deck.leader.localizedName);
             msg.setThumbnail("https://www.playgwent.com" + deck.leader.abilityImg.small);
+            let color = "7f6000";
+            switch(deck.leader.faction.slug.toLowerCase()) {
+                case "neutral": color = "#7f6000"; break;
+                case "monster": color = "#c56c6c"; break;
+                case "nilfgaard": color = "#f0d447"; break;
+                case "northern realms": color = "#48c1ff"; break;
+                case "scoiatael": color = "#2abd36"; break;
+                case "skellige": color = "#ad39ec"; break;
+                case "syndicate": color = "#e67e22"; break;
+            }
+            msg.setColor(color);
 
             msg.addField("Strategem", deck.stratagem.localizedName);
 
@@ -111,6 +122,18 @@ client.on("message", message => {
             }
         } else if(command === "deck") {
             parseDeckAsEmbed(args[0]).then(msg => message.channel.send(msg));
+        } else if(command === "last") {
+            message.channel.fetchMessages({ limit: 100 }).then(messages => {
+                const msgs = messages.array();
+                const regex = /(https:\/\/www.playgwent.com\/en\/decks\/[a-z0-9]*)/g;
+                for(let i = 0; i < msgs.length; ++i) {
+                    const found = msgs[i].content.match(regex);
+                    if(found !== null) {
+                        parseDeckAsEmbed(found[0]).then(msg => message.channel.send(msg));
+                        break;
+                    }
+                }
+            });
         } else if(command === "credits") {
             message.channel.send(lib.strings.credits);
         }
