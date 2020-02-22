@@ -3,6 +3,8 @@ const Fuse = require("fuse.js");
 const fs = require("fs");
 const path = require('path');
 
+const cheerio = require("cheerio");
+
 const axios = require("axios");
 const client = new Discord.Client();
 
@@ -51,6 +53,29 @@ function updateCards() {
     });
 }
 
+function parseDeckAsEmbed(link) {
+    return axios.get(link).then(res => {
+        if(res.status === 200) {
+            const html = res.data;
+            const deck = cheerio.load(html)("#root").data().state.deck;
+
+            const msg = new Discord.RichEmbed();
+            msg.setTitle(deck.leader.localizedName);
+            msg.setThumbnail("https://www.playgwent.com" + deck.leader.abilityImg.small);
+
+            msg.addField("Strategem", deck.stratagem.localizedName);
+
+            deck.cards.sort((a, b) => (b.provisionsCost - a.provisionsCost));
+            const golds = deck.cards.filter(c => c.cardGroup === "gold").map(c => c.localizedName).join("\n");
+            const bronzes = deck.cards.filter(c => c.cardGroup === "bronze").map(c => c.localizedName + " x" + (c.repeatCount + 1)).join("\n");
+            msg.addField("Golds", golds, true);
+            msg.addField("Bronzes", bronzes, true);
+
+            return msg;
+        }
+    })
+}
+
 function setChannelLocale(channel, locale) {
     if(lib.locales.includes(locale.toLowerCase())) {
         chlocales[channel] = locale.toLowerCase();
@@ -84,6 +109,8 @@ client.on("message", message => {
             if(message.author.id === "179631031337484288") {
                 message.channel.send(JSON.stringify(chlocales));
             }
+        } else if(command === "deck") {
+            parseDeckAsEmbed(args[0]).then(msg => message.channel.send(msg));
         } else if(command === "credits") {
             message.channel.send(lib.strings.credits);
         }
