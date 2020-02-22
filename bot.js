@@ -57,7 +57,8 @@ function parseDeckAsEmbed(link) {
     return axios.get(link).then(res => {
         if(res.status === 200) {
             const html = res.data;
-            const deck = cheerio.load(html)("#root").data().state.deck;
+            let deck = cheerio.load(html)("#root").data().state.deck;
+            if(!deck) { deck = cheerio.load(html)("#root").data().state.guide.deck; }
 
             const msg = new Discord.RichEmbed();
             msg.setTitle(deck.leader.localizedName);
@@ -67,7 +68,7 @@ function parseDeckAsEmbed(link) {
                 case "neutral": color = "#7f6000"; break;
                 case "monster": color = "#c56c6c"; break;
                 case "nilfgaard": color = "#f0d447"; break;
-                case "northern realms": color = "#48c1ff"; break;
+                case "northernrealms": color = "#48c1ff"; break;
                 case "scoiatael": color = "#2abd36"; break;
                 case "skellige": color = "#ad39ec"; break;
                 case "syndicate": color = "#e67e22"; break;
@@ -78,7 +79,7 @@ function parseDeckAsEmbed(link) {
 
             deck.cards.sort((a, b) => (b.provisionsCost - a.provisionsCost));
             const golds = deck.cards.filter(c => c.cardGroup === "gold").map(c => c.localizedName).join("\n");
-            const bronzes = deck.cards.filter(c => c.cardGroup === "bronze").map(c => c.localizedName + " x" + (c.repeatCount + 1)).join("\n");
+            const bronzes = deck.cards.filter(c => c.cardGroup === "bronze").map(c => c.localizedName + ((c.repeatCount > 0) ? " x2": "")).join("\n");
             msg.addField("Golds", golds, true);
             msg.addField("Bronzes", bronzes, true);
 
@@ -121,7 +122,7 @@ client.on("message", message => {
                 message.channel.send(JSON.stringify(chlocales));
             }
         } else if(command === "deck") {
-            const regex = /(https:\/\/www.playgwent.com\/en\/decks\/[a-z0-9]*)/g;
+            const regex = /(https:\/\/www\.playgwent\.com\/en\/decks\/((guides\/[0-9]*)|([a-z0-9]*)))/g;
             const found = args[0].match(regex);
             if(found !== null) {
                 parseDeckAsEmbed(found[0]).then(msg => message.channel.send(msg));
@@ -129,7 +130,7 @@ client.on("message", message => {
         } else if(command === "last") {
             message.channel.fetchMessages({ limit: 100 }).then(messages => {
                 const msgs = messages.array();
-                const regex = /(https:\/\/www.playgwent.com\/en\/decks\/[a-z0-9]*)/g;
+                const regex = /(https:\/\/www\.playgwent\.com\/en\/decks\/((guides\/[0-9]*)|([a-z0-9]*)))/g;
                 for(let i = 0; i < msgs.length; ++i) {
                     const found = msgs[i].content.match(regex);
                     if(found !== null) {
