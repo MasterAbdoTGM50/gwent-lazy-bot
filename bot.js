@@ -3,6 +3,8 @@ const Fuse = require("fuse.js");
 const fs = require("fs");
 const path = require('path');
 
+const cheerio = require("cheerio");
+
 const axios = require("axios");
 const client = new Discord.Client();
 
@@ -51,6 +53,49 @@ function updateCards() {
     });
 }
 
+function parseDeckAsEmbed(link) {
+    return axios.get(link).then(res => {
+        if(res.status === 200) {
+            const html = res.data;
+            let deck = cheerio.load(html)("#root").data().state.deck;
+            if(!deck) { deck = cheerio.load(html)("#root").data().state.guide.deck; }
+
+            const msg = new Discord.RichEmbed();
+            msg.setTitle(deck.leader.localizedName);
+            msg.setThumbnail("https://www.playgwent.com" + deck.leader.abilityImg.small);
+            let color = "7f6000";
+            switch(deck.leader.faction.slug.toLowerCase()) {
+                case "neutral": color = "#7f6000"; break;
+                case "monster": color = "#c56c6c"; break;
+                case "nilfgaard": color = "#f0d447"; break;
+                case "northernrealms": color = "#48c1ff"; break;
+                case "scoiatael": color = "#2abd36"; break;
+                case "skellige": color = "#ad39ec"; break;
+                case "syndicate": color = "#e67e22"; break;
+            }
+            msg.setColor(color);
+
+            msg.addField("Strategem", deck.stratagem.localizedName);
+
+            deck.cards.sort((a, b) => (b.provisionsCost - a.provisionsCost));
+            const golds = deck.cards.filter(c => c.cardGroup === "gold").map(c => c.localizedName).join("\n");
+            let bronzes;
+
+            let shupe = deck.cards.filter(c => c.repeatCount > 0).length === 0;
+            if(shupe) {
+                bronzes = deck.cards.filter(c => c.cardGroup === "bronze").map(c => c.localizedName).join("\n");
+            } else {
+                bronzes = deck.cards.filter(c => c.cardGroup === "bronze").map(c => (c.repeatCount + 1) + "x " + c.localizedName).join("\n");
+            }
+
+            msg.addField("Golds", golds, true);
+            msg.addField("Bronzes", bronzes, true);
+
+            return msg;
+        }
+    })
+}
+
 function setChannelLocale(channel, locale) {
     if(lib.locales.includes(locale.toLowerCase())) {
         chlocales[channel] = locale.toLowerCase();
@@ -84,6 +129,24 @@ client.on("message", message => {
             if(message.author.id === "179631031337484288") {
                 message.channel.send(JSON.stringify(chlocales));
             }
+        } else if(command === "deck") {
+            const regex = /(https:\/\/www\.playgwent\.com\/[a-z][a-z]\/decks\/((guides\/[0-9]*)|([a-z0-9]*)))/g;
+            const found = args[0].match(regex);
+            if(found !== null) {
+                parseDeckAsEmbed(found[0]).then(msg => message.channel.send(msg));
+            }
+        } else if(command === "last") {
+            message.channel.fetchMessages({ limit: 100 }).then(messages => {
+                const msgs = messages.array();
+                const regex = /(https:\/\/www\.playgwent\.com\/[a-z][a-z]\/decks\/((guides\/[0-9]*)|([a-z0-9]*)))/g;
+                for(let i = 0; i < msgs.length; ++i) {
+                    const found = msgs[i].content.match(regex);
+                    if(found !== null) {
+                        parseDeckAsEmbed(found[0]).then(msg => message.channel.send(msg));
+                        break;
+                    }
+                }
+            });
         } else if(command === "credits") {
             message.channel.send(lib.strings.credits);
         }
