@@ -53,7 +53,13 @@ function updateCards() {
     });
 }
 
-function parseDeckAsEmbed(link) {
+function hackDeckLocale(link, locale) {
+    i = link.indexOf(".com/") + ".com/".length;
+    return link.substr(0, i) + locale + link.substr(i + 2);
+}
+
+function parseDeckAsEmbed(link, locale) {
+    link = hackDeckLocale(link, locale);
     return axios.get(link).then(res => {
         if(res.status === 200) {
             const html = res.data;
@@ -133,7 +139,7 @@ client.on("message", message => {
             const regex = /(https:\/\/www\.playgwent\.com\/[a-z][a-z]\/decks\/((guides\/[0-9]*)|([a-z0-9]*)))/g;
             const found = args[0].match(regex);
             if(found !== null) {
-                parseDeckAsEmbed(found[0]).then(msg => message.channel.send(msg));
+                parseDeckAsEmbed(found[0], getChannelLocale(message.channel.id)).then(msg => message.channel.send(msg));
             }
         } else if(command === "last") {
             message.channel.fetchMessages({ limit: 100 }).then(messages => {
