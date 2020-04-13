@@ -148,7 +148,7 @@ client.on("message", message => {
                 for(let i = 0; i < msgs.length; ++i) {
                     const found = msgs[i].content.match(regex);
                     if(found !== null) {
-                        parseDeckAsEmbed(found[0]).then(msg => message.channel.send(msg));
+                        parseDeckAsEmbed(found[0], getChannelLocale(message.channel.id)).then(msg => message.channel.send(msg));
                         break;
                     }
                 }
