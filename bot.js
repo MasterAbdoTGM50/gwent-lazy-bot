@@ -22,7 +22,7 @@ client.once("ready", () => {
 });
 
 function updateCards() {
-    axios.get("https://gwent.one/cardbot").then(res => {
+    axios.get("https://gwent.one/api/cardlist?special=lazy-bot&key="+process.env.API_KEY).then(res => {
         const options = {
             shouldSort: true,
             tokenize: true,
