@@ -1,80 +1,46 @@
 const Discord = require("discord.js");
-const Datatore = require("nedb");
+const fs = require("fs");
 const path = require('path');
+const cheerio = require("cheerio");
 const axios = require("axios");
 
-const utils = require("./utils/utils.js")
-const Lisa = require("./utils/lisa");
+const client = new Discord.Client();
 
-let bot = {
-    client: new Discord.Client(),
-    lib: require("./data/lib.json"),
-    nicknames: require("./data/nicknames.json"),
-    translations: require("./data/translations.json"),
-    cards: [],
-    lisas: {},
-    db: {},
-    getChannelLang: async(channel) => {
-        return new Promise((resolve) => {
-            bot.db.channels.findOne({ _id: channel.id }, (err, doc) => {
-                if(doc !== null) { resolve(doc.lang); }
-                resolve("en");
-            });
-        });
-    },
-    setChannelLang: (channel, lang) => {
-        if(bot.lib.locales.includes(lang.toLowerCase())) {
-            bot.db.channels.update({ _id: channel.id }, { $set: { lang: lang.toLowerCase() } }, { upsert: true });
-        }
-    }
-}
+const lib = require("./data/lib.json");
+const nicknames = require("./data/nicknames.json");
+const Lisa = require("./lisa");
 
-bot.client.once("ready", async () => {
-    let data;
-    if(process.env.LOCAL_GWENTONE) { data = require("./gwentone/cardlist.json"); }
-    else {
-        await axios.get("https://gwent.one/api/cardlist?language=all&key=" + process.env.API_KEY).then(res => {
-            data = Object.values(res.data);
-        })
-    }
 
-    parseCards(data);
-    for(let locale of bot.lib.locales) { bot.lisas[locale] = new Lisa(bot.cards, "id", "name." + locale); }
 
-    bot.db.channels = new Datatore({ filename: path.join(__dirname, "persistence/channels.nedb"), autoload: true });
+let cards = [];
+let lisa = null;
 
-    bot.actions = utils.lazyImport(path.join(__dirname, "actions"));
-
-    bot.client.on("message", handleMessage);
-    console.log("GWENT Lazy Bot! Ready!!!");
+client.once("ready", async () => {
+    await updateCards();
+    client.on("message", handleMessage);
+    console.log("GWENT Lazy Bot! Ready!!!")
 });
 
-function parseCards(cards) {
-    Object.values(cards).forEach(card => {
-        let _card = {
-            id: parseInt(card["id"]),
-            art: parseInt(card["artid"]),
-            name: card["name"],
-            categories: card["category"],
-            factions: [card["faction"].toLowerCase(), card["factionSecondary"].toLowerCase()],
-            color: card["color"].toLowerCase(),
-            rarity: card["rarity"].toLowerCase(),
-            type: card["type"].toLowerCase(),
-            provisions: parseInt(card["provision"]),
-            power: parseInt(card["power"]),
-            armor: parseInt(card["armor"]),
-            ability: card["ability"],
-            flavor: card["flavor"]
-        }
-        if(_card.type === "ability") { _card.type = "leader"; }
-        bot.cards.push(_card);
+async function updateCards() {
+    await axios.get("https://gwent.one/api/cardlist?language=en&key=" + process.env.API_KEY).then(res => {
+        Object.values(res.data).forEach(card => { cards.push({ id: card.id, name: card.name }); });
+        lisa = new Lisa(cards);
     });
 }
 
-async function handleMessage(message) {
+function handleMessage(message) {
     if(message.author.bot)  return;
 
-    for(let action of bot.actions) { action.handle(bot, message, await bot.getChannelLang(message.channel)); }
+    const regex = /\[(.*?)]/g;
+
+    let matches = [], match;
+    while((match = regex.exec(message.content)) !== null) {
+        if(match[1].trim() !== "")  { matches.push(match[1].trim()); }
+    }
+
+    matches.forEach(match => {
+        lisa.search(match);
+    });
 }
 
-bot.client.login(process.env.DISCORD_TOKEN);
+client.login(process.env.DISCORD_TOKEN);

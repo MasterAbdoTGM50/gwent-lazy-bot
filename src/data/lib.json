@@ -1,15 +1,4 @@
 {
   "prefix": "!lazy",
-  "locales": ["en", "cn", "de", "es", "fr", "it", "jp", "kr", "mx", "pl", "pt", "ru"],
-  "colors": {
-    "neutral": "#7f6000",
-    "monsters": "#c56c6c",
-    "monster": "#c56c6c",
-    "nilfgaard": "#f0d447",
-    "northern realms": "#48c1ff",
-    "northernrealms": "#48c1ff",
-    "scoiatael": "#2abd36",
-    "skellige": "#ad39ec",
-    "syndicate": "#e67e22"
-  }
+  "locales": ["en", "cn", "de", "es", "fr", "it", "jp", "kr", "mx", "pl", "pt", "ru"]
 }
