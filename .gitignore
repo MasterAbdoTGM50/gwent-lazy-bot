@@ -64,5 +64,4 @@ typings/
 .idea
 
 #My Stuff
-persistence
-gwentone
+src/persistence
