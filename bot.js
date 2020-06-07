@@ -166,6 +166,16 @@ client.on("message", message => {
         }
 
         matches.forEach(match => {
+            if(match === "reddit") {
+                let msg = new Discord.RichEmbed();
+                msg.setTitle("Reddit");
+                msg.setColor("#f0d447");
+                msg.setThumbnail("https://www.playgwent.com/uploads/media/assets_preview/0001/33/thumb_32500_assets_preview_big_e7a50c9e6757416e65d2d7468d05122bd49af700.jpg");
+                msg.setDescription("Wanna know their secret? They are always angry");
+
+                message.channel.send(msg);
+                return;
+            }
             let results = nicknames.exact.filter(card => card.name === match.toLowerCase());
             if(results.length !== 0) {
                 message.channel.send("https://gwent.one/" + locale + "/card/" + results[0].id);
