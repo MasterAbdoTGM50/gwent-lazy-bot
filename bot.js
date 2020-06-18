@@ -72,7 +72,7 @@ function parseDeckAsEmbed(link, locale) {
             let color = "7f6000";
             switch(deck.leader.faction.slug.toLowerCase()) {
                 case "neutral": color = "#7f6000"; break;
-                case "monster": color = "#c56c6c"; break;
+                case "monsters": color = "#c56c6c"; break;
                 case "nilfgaard": color = "#f0d447"; break;
                 case "northernrealms": color = "#48c1ff"; break;
                 case "scoiatael": color = "#2abd36"; break;
