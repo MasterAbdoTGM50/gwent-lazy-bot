@@ -166,7 +166,7 @@ client.on("message", message => {
         }
 
         matches.forEach(match => {
-            if(match === "reddit") {
+            if(match.toLowerCase() === "reddit") {
                 let msg = new Discord.RichEmbed();
                 msg.setTitle("Reddit");
                 msg.setColor("#f0d447");
