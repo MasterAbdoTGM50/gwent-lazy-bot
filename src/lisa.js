@@ -1,52 +1,48 @@
 class Lisa {
-    #rules = {}
-    constructor(entries) {
+    #keyPath;
+    #rules = [];
+
+    constructor(entries, keyPath) {
+        this.#keyPath = keyPath;
         this.#buildRules(entries);
     }
 
     #buildRules = entries => {
-        for(let entry of entries) {
-            let words = entry.name.split(/\s+/);
+        for(let i = 0; i < entries.length; ++i) {
+            let words = this.#keyPath.split(".").reduce((o, p) => o && o[p] || null, entries[i]).split(/\s+/);
             for(let word of words) {
-                word = word.toLowerCase();
-                if(!this.#rules.hasOwnProperty(word)) { this.#rules[word] = [] }
-                this.#rules[word].push(entry);
+                this.#rules.push({ key: word.toLowerCase(), index: i });
             }
         }
     };
 
     search(key) {
-        let matches = [];
-        let keys = key.split(/\s+/);
-
-        //Phase #1: Can I find an Initial Rules Set?
-        for(key of keys) {
-            for(let rule in this.#rules) {
-                if(rule.includes(key)) { matches.push({ key: rule, value: this.#rules[rule] }); }
-            }
+        let keys = key.toLowerCase().split(/\s+/).map(key => key.trim());
+        let attempt = this.#filterRules(keys, (rule, key) => { return rule.key.includes(key); });
+        let result = attempt;
+        if(result.length > 1) {
+            attempt = this.#filterRules(keys, (rule, key) => { return rule.key === key; });
+            if(attempt.length !== 0 && attempt.length < result.length) { result = attempt; }
         }
 
-        let result = matches;
-
-        //Phase #2: Can I count the occurrences?
-        let values = [];
-        matches.forEach(match => { values.push(...match.value); });
-        let occurrences = values.reduce((acc, cur) => {
-            if(!acc.hasOwnProperty(cur.name)) { acc[cur.name] = { count: 0, value: cur }; }
-            acc[cur.name].count++;
-            return acc;
-        }, {});
-        let dupes = Object.values(occurrences).reduce((max, cur) => {
-            return cur.count > max ? cur.count : max;
-        }, 1);
-        let intersections = Object.values(occurrences).filter(occurrence => occurrence.count === dupes);
-
-        console.log(JSON.stringify(occurrences, null, 4));
-        console.log(dupes);
-
-        //Return result
         return result;
     }
+
+    #filterRules = (keys, filterFn) => {
+        let matches = [];
+
+        keys.forEach(key => {
+            this.#rules.forEach(rule => {
+                if(filterFn(rule, key)) { matches.push(rule); }
+            })
+        })
+
+        let occurrences = matches.reduce((acc, rule) => acc.set(rule.index, (acc.get(rule.index) || 0) + 1), new Map());
+        let mostOccurrence = Math.max(...occurrences.values());
+
+        return [...occurrences.entries()].filter(([, v]) => v === mostOccurrence).map(([k,]) => k);
+    }
+
 }
 
 module.exports = Lisa;
