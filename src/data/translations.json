@@ -1,0 +1,650 @@
+{
+  "cn": {
+    "name": "名称",
+    "power": "战力",
+    "armor": "护甲",
+    "provision": "Provision",
+    "category": "类别",
+    "ability": "能力",
+    "token": "Token",
+    "color": "颜色",
+    "colors": {
+      "bronze": "铜色牌",
+      "gold": "金色牌"
+    },
+    "faction": "阵营",
+    "factions": {
+      "neutral": "中立",
+      "monster": "怪兽",
+      "nilfgaard": "尼弗迦德",
+      "northern realms": "北方领域",
+      "skellige": "史凯利格",
+      "scoiatael": "松鼠党",
+      "syndicate": "辛迪加"
+    },
+    "type": "卡牌类别",
+    "types": {
+      "leader": "领袖牌",
+      "unit": "单位牌",
+      "special": "特殊牌",
+      "artifact": "神器牌",
+      "stratagem": "Stratagem"
+    },
+    "rarity": "稀有度",
+    "rarities": {
+      "common": "普通",
+      "rare": "稀有",
+      "epic": "史诗",
+      "legendary": "传奇"
+    },
+    "set": "卡牌套组",
+    "sets": {
+      "starter": "起始牌组",
+      "base": "核心牌组",
+      "thronebreaker": "王权的陨落",
+      "crimson curse": "猩红诅咒",
+      "novigrad": "Novigrad",
+      "iron judgment": "Iron Judgment",
+      "merchants of ofir": "Merchants of Ofir",
+      "master mirror": "镜子大师"
+    },
+    "reach": "射程：",
+    "premium": "闪卡",
+    "game version": "游戏版本",
+    "illustration by": "插画作者："
+  },
+  "de": {
+    "name": "Name",
+    "power": "Stärke",
+    "armor": "Rüstung",
+    "provision": "Rekrutierungskosten",
+    "category": "Kategorie",
+    "ability": "Fähigkeit",
+    "token": "Token",
+    "color": "Farbe",
+    "colors": {
+      "bronze": "Bronze",
+      "gold": "Gold"
+    },
+    "faction": "Fraktion",
+    "factions": {
+      "neutral": "Neutral",
+      "monster": "Monster",
+      "nilfgaard": "Nilfgaard",
+      "northern realms": "Nördliche Königreiche",
+      "skellige": "Skellige",
+      "scoiatael": "Scoia'tael",
+      "syndicate": "Syndikat"
+    },
+    "type": "Kartentyp",
+    "types": {
+      "leader": "Anführer",
+      "unit": "Einheit",
+      "special": "Sonderkarte",
+      "artifact": "Artefakt",
+      "stratagem": "Kriegslist"
+    },
+    "rarity": "Seltenheit",
+    "rarities": {
+      "common": "Gewöhnlich",
+      "rare": "Selten",
+      "epic": "Episch",
+      "legendary": "Legendär"
+    },
+    "set": "Kartensatz",
+    "sets": {
+      "starter": "Starterset",
+      "base": "Basisset",
+      "thronebreaker": "Thronebreaker",
+      "crimson curse": "Crimson Curse",
+      "novigrad": "Novigrad",
+      "iron judgment": "Iron Judgment",
+      "merchants of ofir": "Merchants of Ofir",
+      "master mirror": "Master Mirror"
+    },
+    "reach": "Reichweite:",
+    "premium": "Premium",
+    "game version": "Spielversion",
+    "illustration by": "Illustration von:"
+  },
+  "en": {
+    "name": "Name",
+    "power": "Power",
+    "armor": "Armor",
+    "provision": "Provision",
+    "category": "Category",
+    "ability": "Ability",
+    "token": "Token",
+    "color": "Color",
+    "colors": {
+      "bronze": "Bronze",
+      "gold": "Gold"
+    },
+    "faction": "Faction",
+    "factions": {
+      "neutral": "Neutral",
+      "monster": "Monsters",
+      "nilfgaard": "Nilfgaard",
+      "northern realms": "Northern Realms",
+      "skellige": "Skellige",
+      "scoiatael": "Scoia'tael",
+      "syndicate": "Syndicate"
+    },
+    "type": "Card Type",
+    "types": {
+      "leader": "Leader",
+      "unit": "Unit",
+      "special": "Special",
+      "artifact": "Artifact",
+      "stratagem": "Stratagem"
+    },
+    "rarity": "Rarity",
+    "rarities": {
+      "common": "Common",
+      "rare": "Rare",
+      "epic": "Epic",
+      "legendary": "Legendary"
+    },
+    "set": "Card Set",
+    "sets": {
+      "starter": "Starter Set",
+      "base": "Base Set",
+      "thronebreaker": "Thronebreaker",
+      "crimson curse": "Crimson Curse",
+      "novigrad": "Novigrad",
+      "iron judgment": "Iron Judgment",
+      "merchants of ofir": "Merchants of Ofir",
+      "master mirror": "Master Mirror"
+    },
+    "reach": "Reach:",
+    "premium": "Premium",
+    "game version": "Game version",
+    "illustration by": "Illustration by:"
+  },
+  "es": {
+    "name": "Nombre",
+    "power": "Poder",
+    "armor": "Armadura",
+    "provision": "Provisión",
+    "category": "Categoría",
+    "ability": "Habilidad",
+    "token": "Token",
+    "color": "Color",
+    "colors": {
+      "bronze": "Bronce",
+      "gold": "Oro"
+    },
+    "faction": "Facción",
+    "factions": {
+      "neutral": "Neutral",
+      "monster": "Monstruos",
+      "nilfgaard": "Nilfgaard",
+      "northern realms": "Reinos del Norte",
+      "skellige": "Skellige",
+      "scoiatael": "Scoia'tael",
+      "syndicate": "Sindicato"
+    },
+    "type": "Tipo de carta",
+    "types": {
+      "leader": "Líder",
+      "unit": "Unidad",
+      "special": "Especial",
+      "artifact": "Artefacto",
+      "stratagem": "Estratagema"
+    },
+    "rarity": "Rareza",
+    "rarities": {
+      "common": "Común",
+      "rare": "Rara",
+      "epic": "Épica",
+      "legendary": "Legendaria"
+    },
+    "set": "Colección de cartas",
+    "sets": {
+      "starter": "Colección inicial",
+      "base": "Colección básica",
+      "thronebreaker": "Thronebreaker",
+      "crimson curse": "Crimson Curse",
+      "novigrad": "Novigrad",
+      "iron judgment": "Iron Judgment",
+      "merchants of ofir": "Merchants of Ofir",
+      "master mirror": "Master Mirror"
+    },
+    "reach": "Alcance:",
+    "premium": "Premium",
+    "game version": "Versión del juego",
+    "illustration by": "Ilustración de:"
+  },
+  "fr": {
+    "name": "Nom",
+    "power": "Force",
+    "armor": "Armure",
+    "provision": "Coût de recrutement",
+    "category": "Catégorie",
+    "ability": "Aptitude",
+    "token": "Token",
+    "color": "Couleur",
+    "colors": {
+      "bronze": "Bronze",
+      "gold": "Or"
+    },
+    "faction": "Faction",
+    "factions": {
+      "neutral": "Neutre",
+      "monster": "Monstres",
+      "nilfgaard": "Nilfgaard",
+      "northern realms": "Royaumes du Nord",
+      "skellige": "Skellige",
+      "scoiatael": "Scoia'tael",
+      "syndicate": "Syndicat"
+    },
+    "type": "Type de carte",
+    "types": {
+      "leader": "Chef",
+      "unit": "Unité",
+      "special": "Spéciale",
+      "artifact": "Artefact",
+      "stratagem": "Stratagème"
+    },
+    "rarity": "Rareté",
+    "rarities": {
+      "common": "Ordinaire",
+      "rare": "Rare",
+      "epic": "Épique",
+      "legendary": "Légendaire"
+    },
+    "set": "Ensemble de cartes",
+    "sets": {
+      "starter": "Cartes de démarrage",
+      "base": "Cartes de base",
+      "thronebreaker": "Thronebreaker",
+      "crimson curse": "Crimson Curse",
+      "novigrad": "Novigrad",
+      "iron judgment": "Iron Judgment",
+      "merchants of ofir": "Merchants of Ofir",
+      "master mirror": "Master Mirror"
+    },
+    "reach": "Portée :",
+    "premium": "Premium",
+    "game version": "Version du jeu",
+    "illustration by": "Illustration de :"
+  },
+  "it": {
+    "name": "Nome",
+    "power": "Forza",
+    "armor": "Armatura",
+    "provision": "Reclutamento",
+    "category": "Categoria",
+    "ability": "Capacità",
+    "token": "Token",
+    "color": "Colore",
+    "colors": {
+      "bronze": "Bronzo",
+      "gold": "Oro"
+    },
+    "faction": "Fazione",
+    "factions": {
+      "neutral": "Neutrale",
+      "monster": "Mostri",
+      "nilfgaard": "Nilfgaard",
+      "northern realms": "Regni Settentrionali",
+      "skellige": "Skellige",
+      "scoiatael": "Scoia'tael",
+      "syndicate": "Sindacato"
+    },
+    "type": "Tipo di carta",
+    "types": {
+      "leader": "Comandante",
+      "unit": "Unità",
+      "special": "Speciale",
+      "artifact": "Manufatto",
+      "stratagem": "Stratagemma"
+    },
+    "rarity": "Rarità",
+    "rarities": {
+      "common": "Comune",
+      "rare": "Rara",
+      "epic": "Epica",
+      "legendary": "Leggendaria"
+    },
+    "set": "Set di carte",
+    "sets": {
+      "starter": "Set iniziale",
+      "base": "Set di base",
+      "thronebreaker": "Thronebreaker",
+      "crimson curse": "Crimson Curse",
+      "novigrad": "Novigrad",
+      "iron judgment": "Iron Judgment",
+      "merchants of ofir": "Merchants of Ofir",
+      "master mirror": "Master Mirror"
+    },
+    "reach": "Portata:",
+    "premium": "Premium",
+    "game version": "Versione del gioco",
+    "illustration by": "Illustrazione di:"
+  },
+  "jp": {
+    "name": "名前",
+    "power": "戦力",
+    "armor": "アーマー",
+    "provision": "構築コスト",
+    "category": "カテゴリー",
+    "ability": "能力",
+    "token": "Token",
+    "color": "枠色",
+    "colors": {
+      "bronze": "ブロンズ",
+      "gold": "ゴールド"
+    },
+    "faction": "勢力",
+    "factions": {
+      "neutral": "ニュートラル",
+      "monster": "モンスター",
+      "nilfgaard": "ニルフガード",
+      "northern realms": "北方諸国",
+      "skellige": "スケリッジ",
+      "scoiatael": "スコイア＝テル",
+      "syndicate": "シンジケート"
+    },
+    "type": "カードタイプ",
+    "types": {
+      "leader": "リーダー",
+      "unit": "ユニット",
+      "special": "スペシャル",
+      "artifact": "アーティファクト",
+      "stratagem": "ストラタジェム"
+    },
+    "rarity": "レア度",
+    "rarities": {
+      "common": "コモン",
+      "rare": "レア",
+      "epic": "エピック",
+      "legendary": "レジェンダリー"
+    },
+    "set": "カードセット",
+    "sets": {
+      "starter": "スターターセット",
+      "base": "基本セット",
+      "thronebreaker": "奪われし玉座",
+      "crimson curse": "紅き血の呪縛",
+      "novigrad": "ノヴィグラド",
+      "iron judgment": "鉄の裁定",
+      "merchants of ofir": "オフィルの商人",
+      "master mirror": "鏡の達人"
+    },
+    "reach": "射程：",
+    "premium": "プレミアム",
+    "game version": "ゲームバージョン",
+    "illustration by": "イラスト："
+  },
+  "kr": {
+    "name": "이름",
+    "power": "전력",
+    "armor": "방어구",
+    "provision": "유지비",
+    "category": "범주",
+    "ability": "능력",
+    "token": "Token",
+    "color": "색상",
+    "colors": {
+      "bronze": "브론즈",
+      "gold": "골드"
+    },
+    "faction": "세력",
+    "factions": {
+      "neutral": "중립",
+      "monster": "괴물",
+      "nilfgaard": "닐프가드",
+      "northern realms": "북부 왕국",
+      "skellige": "스켈리게",
+      "scoiatael": "스코이아텔",
+      "syndicate": "신디케이트"
+    },
+    "type": "카드 종류",
+    "types": {
+      "leader": "리더",
+      "unit": "유닛",
+      "special": "특수",
+      "artifact": "인공물",
+      "stratagem": "책략"
+    },
+    "rarity": "희귀도순",
+    "rarities": {
+      "common": "일반",
+      "rare": "희귀",
+      "epic": "영웅",
+      "legendary": "전설"
+    },
+    "set": "카드 세트",
+    "sets": {
+      "starter": "스타터 세트",
+      "base": "기본 세트",
+      "thronebreaker": "쓰론브레이커",
+      "crimson curse": "핏빛 저주",
+      "novigrad": "노비그라드",
+      "iron judgment": "철의 심판",
+      "merchants of ofir": "오피에르의 상인들",
+      "master mirror": "마스터 미러"
+    },
+    "reach": "사정거리:",
+    "premium": "프리미엄",
+    "game version": "게임 버전",
+    "illustration by": "삽화:"
+  },
+  "mx": {
+    "name": "Nombre",
+    "power": "Poder",
+    "armor": "Armadura",
+    "provision": "Provisión",
+    "category": "Categoría",
+    "ability": "Habilidad",
+    "token": "Token",
+    "color": "Color",
+    "colors": {
+      "bronze": "Bronce",
+      "gold": "Oro"
+    },
+    "faction": "Facción",
+    "factions": {
+      "neutral": "Neutral",
+      "monster": "Monstruos",
+      "nilfgaard": "Nilfgaard",
+      "northern realms": "Reinos del Norte",
+      "skellige": "Skellige",
+      "scoiatael": "Scoia'tael",
+      "syndicate": "Sindicato"
+    },
+    "type": "Tipo de carta",
+    "types": {
+      "leader": "Líder",
+      "unit": "Unidad",
+      "special": "Especial",
+      "artifact": "Artefacto",
+      "stratagem": "Estratagema"
+    },
+    "rarity": "Rareza",
+    "rarities": {
+      "common": "Común",
+      "rare": "Rara",
+      "epic": "Épica",
+      "legendary": "Legendaria"
+    },
+    "set": "Conjunto de cartas",
+    "sets": {
+      "starter": "Conjunto inicial",
+      "base": "Juego base",
+      "thronebreaker": "Thronebreaker",
+      "crimson curse": "Crimson Curse",
+      "novigrad": "Novigrad",
+      "iron judgment": "Iron Judgment",
+      "merchants of ofir": "Merchants of Ofir",
+      "master mirror": "Master Mirror"
+    },
+    "reach": "Alcance:",
+    "premium": "Premium",
+    "game version": "Versión del juego",
+    "illustration by": "Ilustración de:"
+  },
+  "pl": {
+    "name": "Imię",
+    "power": "Siła",
+    "armor": "Pancerz",
+    "provision": "Koszt werbunku",
+    "category": "Kategoria",
+    "ability": "Umiejętność",
+    "token": "Token",
+    "color": "Filtr jakości kart",
+    "colors": {
+      "bronze": "Brązowa Karta",
+      "gold": "Złota Karta"
+    },
+    "faction": "Frakcja",
+    "factions": {
+      "neutral": "Karty Neutralne",
+      "monster": "Potwory",
+      "nilfgaard": "Nilfgaard",
+      "northern realms": "Królestwa Północy",
+      "skellige": "Skellige",
+      "scoiatael": "Scoia'tael",
+      "syndicate": "Syndykat"
+    },
+    "type": "Rodzaj karty",
+    "types": {
+      "leader": "Karta Dowódcy",
+      "unit": "Jednostka",
+      "special": "Specjalna",
+      "artifact": "Artefakt",
+      "stratagem": "Manewr Bojowy"
+    },
+    "rarity": "Rzadkość",
+    "rarities": {
+      "common": "Zwykła",
+      "rare": "Rzadka",
+      "epic": "Epicka",
+      "legendary": "Legendarna"
+    },
+    "set": "Zestaw kart",
+    "sets": {
+      "starter": "Zestaw startowy",
+      "base": "Zestaw podstawowy",
+      "thronebreaker": "Wojna Krwi",
+      "crimson curse": "Krwawa Klątwa",
+      "novigrad": "Novigrad",
+      "iron judgment": "Żelazna Wola",
+      "merchants of ofir": "Kupcy z Ofiru",
+      "master mirror": "Pan Lusterko"
+    },
+    "reach": "Zasięg:",
+    "premium": "Premium",
+    "game version": "Wersja gry",
+    "illustration by": "Ilustracja:"
+  },
+  "pt": {
+    "name": "Nome",
+    "power": "Poder",
+    "armor": "Armadura",
+    "provision": "Provisão",
+    "category": "Categoria",
+    "ability": "Habilidade",
+    "token": "Token",
+    "color": "Cor",
+    "colors": {
+      "bronze": "Bronze",
+      "gold": "Ouro"
+    },
+    "faction": "Facção",
+    "factions": {
+      "neutral": "Neutras",
+      "monster": "Monstros",
+      "nilfgaard": "Nilfgaard",
+      "northern realms": "Reinos do Norte",
+      "skellige": "Skellige",
+      "scoiatael": "Scoia'tael",
+      "syndicate": "Sindicato"
+    },
+    "type": "Tipo de carta",
+    "types": {
+      "leader": "Líder",
+      "unit": "Unidade",
+      "special": "Especial",
+      "artifact": "Artefato",
+      "stratagem": "Estratégia"
+    },
+    "rarity": "Raridade",
+    "rarities": {
+      "common": "Comum",
+      "rare": "Raro",
+      "epic": "Épico",
+      "legendary": "Lendário"
+    },
+    "set": "Conjunto de cartas",
+    "sets": {
+      "starter": "Conjunto inicial",
+      "base": "Conjunto básico",
+      "thronebreaker": "Thronebreaker",
+      "crimson curse": "Crimson Curse",
+      "novigrad": "Novigrad",
+      "iron judgment": "Iron Judgment",
+      "merchants of ofir": "Merchants of Ofir",
+      "master mirror": "Master Mirror"
+    },
+    "reach": "Alcance:",
+    "premium": "Premium",
+    "game version": "Versão do jogo",
+    "illustration by": "Ilustração por:"
+  },
+  "ru": {
+    "name": "Имя",
+    "power": "Сила",
+    "armor": "Броня",
+    "provision": "Стоимость найма",
+    "category": "Категория",
+    "ability": "Способность",
+    "token": "Token",
+    "color": "По цвету",
+    "colors": {
+      "bronze": "Бронзовая карта",
+      "gold": "Золотая карта"
+    },
+    "faction": "Фракция",
+    "factions": {
+      "neutral": "Нейтральные карты",
+      "monster": "Чудовища",
+      "nilfgaard": "Нильфгаард",
+      "northern realms": "Королевства Севера",
+      "skellige": "Скеллиге",
+      "scoiatael": "Скоя'таэли",
+      "syndicate": "Синдикат"
+    },
+    "type": "Тип карты",
+    "types": {
+      "leader": "Лидер",
+      "unit": "Отряд",
+      "special": "Особая",
+      "artifact": "Артефакт",
+      "stratagem": "Стратегический прием"
+    },
+    "rarity": "По редкости",
+    "rarities": {
+      "common": "Обычная",
+      "rare": "Редкая",
+      "epic": "Эпическая",
+      "legendary": "Легендарная"
+    },
+    "set": "Набор карт",
+    "sets": {
+      "starter": "Стартовый набор",
+      "base": "Базовый набор",
+      "thronebreaker": "Кровная вражда",
+      "crimson curse": "Алое проклятие",
+      "novigrad": "Новиград",
+      "iron judgment": "Железная воля",
+      "merchants of ofir": "Купцы из Офира",
+      "master mirror": "Господин Зеркало"
+    },
+    "reach": "Дальнобойность:",
+    "premium": "Премиальные",
+    "game version": "Версия игры",
+    "illustration by": "Иллюстратор:"
+  }
+}

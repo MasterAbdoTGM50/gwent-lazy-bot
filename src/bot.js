@@ -1,46 +1,61 @@
 const Discord = require("discord.js");
-const fs = require("fs");
 const path = require('path');
-const cheerio = require("cheerio");
 const axios = require("axios");
 
-const client = new Discord.Client();
-
-const lib = require("./data/lib.json");
-const nicknames = require("./data/nicknames.json");
+const utils = require("./utils")
 const Lisa = require("./lisa");
 
+let bot = {
+    client: new Discord.Client(),
+    lib: require("./data/lib.json"),
+    cards: [],
+    lisas: {},
+    translations: require("./data/translations")
+}
 
+bot.client.once("ready", async () => {
+    let data;
+    if(process.env.LOCAL_GWENTONE) { data = require("./gwentone/cardlist.json"); }
+    else {
+        await axios.get("https://gwent.one/api/cardlist?language=all&key=" + process.env.API_KEY).then(res => {
+            data = Object.values(res.data);
+        })
+    }
+    parseCards(data);
 
-let cards = [];
-let lisa = null;
+    for(let locale of bot.lib.locales) { bot.lisas[locale] = new Lisa(bot.cards, "name." + locale); }
 
-client.once("ready", async () => {
-    await updateCards();
-    client.on("message", handleMessage);
+    bot.actions = utils.lazyImport(path.join(__dirname, "actions"));
+
+    bot.client.on("message", handleMessage);
     console.log("GWENT Lazy Bot! Ready!!!")
 });
 
-async function updateCards() {
-    await axios.get("https://gwent.one/api/cardlist?language=en&key=" + process.env.API_KEY).then(res => {
-        Object.values(res.data).forEach(card => { cards.push({ id: card.id, name: card.name }); });
-        lisa = new Lisa(cards);
+function parseCards(cards) {
+    Object.values(cards).forEach(card => {
+        let _card = {
+            id: parseInt(card["id"]),
+            art: parseInt(card["artid"]),
+            name: card["name"],
+            categories: card["category"],
+            factions: [card["faction"].toLowerCase(), card["factionSecondary"].toLowerCase()],
+            color: card["color"].toLowerCase(),
+            rarity: card["rarity"].toLowerCase(),
+            type: card["type"].toLowerCase(),
+            provisions: parseInt(card["provision"]),
+            power: parseInt(card["power"]),
+            armor: parseInt(card["armor"]),
+            ability: card["ability"],
+            flavor: card["flavor"]
+        }
+        bot.cards.push(_card);
     });
 }
 
-function handleMessage(message) {
+async function handleMessage(message) {
     if(message.author.bot)  return;
 
-    const regex = /\[(.*?)]/g;
-
-    let matches = [], match;
-    while((match = regex.exec(message.content)) !== null) {
-        if(match[1].trim() !== "")  { matches.push(match[1].trim()); }
-    }
-
-    matches.forEach(match => {
-        lisa.search(match);
-    });
+    for(let action of bot.actions) { action.handle(bot, message, "en"); }
 }
 
-client.login(process.env.DISCORD_TOKEN);
+bot.client.login(process.env.DISCORD_TOKEN);
