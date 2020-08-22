@@ -64,4 +64,5 @@ typings/
 .idea
 
 #My Stuff
-src/persistence
+chlocales.json
+gwentone

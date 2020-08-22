@@ -1,15 +1,12 @@
 const Discord = require("discord.js");
-const utils = require("../utils/utils.js");
 
 function buildCardEmbed(bot, card, locale) {
     let embed = new Discord.MessageEmbed();
-    let title = card.name[locale];
-    if(card.categories[locale] !== "") { title += " - " + card.categories[locale]; }
+    let title = card.name[locale] + " - " + card.categories[locale];
     let url = "https://gwent.one/en/card/" + card.id;
     let thumb = "https://gwent.one/img/assets/medium/art/" + card.art + ".jpg";
-    if(card.type === "leader") { thumb = "https://gwent.one/img/icon/ability/" + card.id + ".png" }
-    let color = bot.lib.colors[card.factions[0]];
     let faction = bot.translations[locale]["factions"][card.factions[0]];
+    let color = bot.lib.colors[card.factions[0]];
     if(card.factions[1] !== "") { faction += " & " + bot.translations[locale]["factions"][card.factions[1]] }
     let rarity = bot.translations[locale]["rarities"][card.rarity];
     let type = bot.translations[locale]["types"][card.type];
@@ -23,35 +20,26 @@ function buildCardEmbed(bot, card, locale) {
     embed.setTitle(title);
     embed.setURL(url);
     embed.setThumbnail(thumb);
-    if(card.type !== "leader") {
-        embed.addField("\u200b", stats);
-        embed.addField("\u200b","*" +  flavor + "*");
-        faction += " - " + rarity + " " + type;
-    }
-    embed.setAuthor(faction)
+    embed.setAuthor(faction + " - " + rarity + " - " + type)
     embed.setDescription(ability);
+    embed.addField("\u200b", stats);
+    embed.addField("\u200b","*" +  flavor + "*");
     return embed;
 }
 
 module.exports = {
-    async handle(bot, message, locale) {
-        let matches = utils.findMatches(message.content, /\[(.*?)]/g);
+    handle(bot, message, locale) {
+        const regex = /\[(.*?)]/g;
+
+        let matches = [], match;
+        while((match = regex.exec(message.content)) !== null) {
+            if(match[1].trim() !== "")  { matches.push(match[1].trim()); }
+        }
 
         for(let match of matches) {
-
-            let result = bot.nicknames.filter(nick => { return nick.name === match.toLowerCase() });
+            let result = bot.lisas[locale].search(match);
             if(result.length === 1) {
-                message.channel.send(buildCardEmbed(bot, bot.lisas[locale].findByKey(result[0].id), locale));
-                return;
-            }
-
-            let langs = (locale === "en") ? ["en"] : [locale, "en"];
-            for(let lang of langs) {
-                let result = bot.lisas[lang].findByAlias(match);
-                if(result.length === 1) {
-                    message.channel.send(buildCardEmbed(bot, result[0], locale));
-                    break;
-                }
+                message.channel.send(buildCardEmbed(bot, bot.cards[result[0]], locale));
             }
         }
     }
