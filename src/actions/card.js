@@ -29,12 +29,7 @@ function buildCardEmbed(bot, card, locale) {
 
 module.exports = {
     handle(bot, message, locale) {
-        const regex = /\[(.*?)]/g;
-
-        let matches = [], match;
-        while((match = regex.exec(message.content)) !== null) {
-            if(match[1].trim() !== "")  { matches.push(match[1].trim()); }
-        }
+        let matches = utils.findMatches(message.content, /\[(.*?)]/g);
 
         for(let match of matches) {
             let result = bot.lisas[locale].search(match);
