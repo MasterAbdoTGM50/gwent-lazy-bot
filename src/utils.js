@@ -15,4 +15,12 @@ function lazyImport(dir, readSubDir = false) {
     return imports;
 }
 
-module.exports = { lazyImport }
+function findMatches(str, regex) {
+    let matches = [], match;
+    while((match = regex.exec(str)) !== null) {
+        if(match[1].trim() !== "")  { matches.push(match[1].trim()); }
+    }
+    return matches;
+}
+
+module.exports = { lazyImport, findMatches }
