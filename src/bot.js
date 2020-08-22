@@ -48,6 +48,7 @@ function parseCards(cards) {
             ability: card["ability"],
             flavor: card["flavor"]
         }
+        if(_card.type === "ability") { _card.type = "leader"; }
         bot.cards.push(_card);
     });
 }
