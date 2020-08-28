@@ -159,6 +159,8 @@ client.on("message", message => {
             if(match[1].trim() !== "")  { matches.push(match[1].trim()); }
         }
 
+        if(matches.length > 3) { return; }
+
         matches.forEach(match => {
             if(match.toLowerCase() === "reddit") {
                 let msg = new Discord.RichEmbed();
