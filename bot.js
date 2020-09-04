@@ -120,7 +120,7 @@ client.on("message", message => {
         let command = args.shift().toLowerCase();
 
         if(command === "update") {
-            updateCards();
+            if(message.member.hasPermission("MANAGE_CHANNELS")) { updateCards(); }
         } else if(command === "locale") {
             if(args.length > 0) {
                 if(message.member.hasPermission("MANAGE_CHANNELS")) { setChannelLocale(message.channel.id, args[0]); }
