@@ -114,7 +114,7 @@ function rememberChannelLocales() {
     }
 }
 
-var handleMsg = (message) => {
+function handleMsg(message) {
 
     if(message.content.startsWith(lib.strings.prefix)) {
         let args = message.content.slice(lib.strings.prefix.length + 1).split(/ +/);
