@@ -44,7 +44,7 @@ function updateCards() {
             cards[locale] = _cards;
             fuses[locale] = new Fuse(cards[locale], options);
         });
-        client.on("message", handleMsg);
+        client.on("message", handle);
     });
 }
 
@@ -114,7 +114,7 @@ function rememberChannelLocales() {
     }
 }
 
-function handleMsg(message) {
+function handle(message) {
 
     if(message.content.startsWith(lib.strings.prefix)) {
         let args = message.content.slice(lib.strings.prefix.length + 1).split(/ +/);
