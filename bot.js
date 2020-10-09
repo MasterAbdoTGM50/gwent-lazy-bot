@@ -24,7 +24,7 @@ client.once("ready", () => {
 function updateCards() {
     axios.get("https://gwent.one/api/cardlist?special=lazy-bot&key="+process.env.API_KEY).then(res => {
         console.log("Fetched Data Alright");
-
+        console.log(res.data);
         const options = {
             shouldSort: true,
             tokenize: true,
@@ -44,7 +44,7 @@ function updateCards() {
             });
 
             cards[locale] = _cards;
-            console.log(cards[locale]);
+
             fuses[locale] = new Fuse(cards[locale], options);
         });
         console.log("Handling Messages");
