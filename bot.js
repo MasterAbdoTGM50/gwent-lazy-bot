@@ -45,7 +45,7 @@ function updateCards() {
             cards[locale] = _cards;
             fuses[locale] = new Fuse(cards[locale], options);
         });
-        console.log("Handling Messages);
+        console.log("Handling Messages");
         client.on("message", handle);
     });
 }
