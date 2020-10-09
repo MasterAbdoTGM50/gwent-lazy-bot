@@ -24,6 +24,7 @@ client.once("ready", () => {
 function updateCards() {
     axios.get("https://gwent.one/api/cardlist?special=lazy-bot&key="+process.env.API_KEY).then(res => {
         console.log("Fetched Data Alright");
+
         const options = {
             shouldSort: true,
             tokenize: true,
@@ -43,6 +44,7 @@ function updateCards() {
             });
 
             cards[locale] = _cards;
+            console.log(cards[locale]);
             fuses[locale] = new Fuse(cards[locale], options);
         });
         console.log("Handling Messages");
@@ -161,6 +163,7 @@ function handle(message) {
         }
 
         if(matches.length > 3) { return; }
+     
 
         matches.forEach(match => {
             if(match.toLowerCase() === "reddit") {
@@ -183,6 +186,8 @@ function handle(message) {
                 let results = [];
                 for(let i = 0; i < _locales.length; ++i) {
                     results = fuses[_locales[i]].search(match);
+                    
+    
 
                     if(results.length !== 0) {
                         message.channel.send("https://gwent.one/" + _locales[i] + "/card/" + results[0].id);
