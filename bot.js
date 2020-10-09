@@ -44,6 +44,7 @@ function updateCards() {
             cards[locale] = _cards;
             fuses[locale] = new Fuse(cards[locale], options);
         });
+        client.on("message", handleMsg);
     });
 }
 
@@ -113,15 +114,13 @@ function rememberChannelLocales() {
     }
 }
 
-client.on("message", message => {
+var handleMsg = (message) => {
 
     if(message.content.startsWith(lib.strings.prefix)) {
         let args = message.content.slice(lib.strings.prefix.length + 1).split(/ +/);
         let command = args.shift().toLowerCase();
 
-        if(command === "update") {
-            if(message.member.hasPermission("MANAGE_CHANNELS")) { updateCards(); }
-        } else if(command === "locale") {
+        if(command === "locale") {
             if(args.length > 0) {
                 if(message.member.hasPermission("MANAGE_CHANNELS")) { setChannelLocale(message.channel.id, args[0]); }
             }
