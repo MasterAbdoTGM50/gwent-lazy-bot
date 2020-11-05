@@ -34,7 +34,7 @@ function buildCardEmbed(bot, card, locale) {
 }
 
 module.exports = {
-    handle(bot, message, locale) {
+    async handle(bot, message, locale) {
         let matches = utils.findMatches(message.content, /\[(.*?)]/g);
 
         for(let match of matches) {
