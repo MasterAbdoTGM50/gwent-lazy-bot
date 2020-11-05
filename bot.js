@@ -176,6 +176,10 @@ client.on("message", message => {
                 message.channel.send(msg);
                 return;
             }
+            if(match.toLowerCase() === "voldesnail" && message.channel.id === "411110686257840141") {
+                message.channel.send("https://gwent.one/de/card/202117");
+                return;
+            }
             let results = nicknames.exact.filter(card => card.name === match.toLowerCase());
             if(results.length !== 0) {
                 message.channel.send("https://gwent.one/" + locale + "/card/" + results[0].id);
