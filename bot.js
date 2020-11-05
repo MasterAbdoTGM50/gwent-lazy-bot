@@ -23,6 +23,8 @@ client.once("ready", () => {
 
 function updateCards() {
     axios.get("https://gwent.one/api/cardlist?special=lazy-bot&key="+process.env.API_KEY).then(res => {
+        console.log("Fetched Data Alright");
+        console.log(res.data);
         const options = {
             shouldSort: true,
             tokenize: true,
@@ -41,15 +43,12 @@ function updateCards() {
                 _cards.push({ id: card.id, name: card[locale] })
             });
 
-            Object.values(nicknames.fuzzy).forEach(nickname => {
-                if(nickname[locale]) {
-                    _cards.push({ id: nickname.id, name: nickname[locale] })
-                }
-            });
-
             cards[locale] = _cards;
+
             fuses[locale] = new Fuse(cards[locale], options);
         });
+        console.log("Handling Messages");
+        client.on("message", handle);
     });
 }
 
@@ -72,7 +71,7 @@ function parseDeckAsEmbed(link, locale) {
             let color = "7f6000";
             switch(deck.leader.faction.slug.toLowerCase()) {
                 case "neutral": color = "#7f6000"; break;
-                case "monster": color = "#c56c6c"; break;
+                case "monsters": color = "#c56c6c"; break;
                 case "nilfgaard": color = "#f0d447"; break;
                 case "northernrealms": color = "#48c1ff"; break;
                 case "scoiatael": color = "#2abd36"; break;
@@ -119,15 +118,13 @@ function rememberChannelLocales() {
     }
 }
 
-client.on("message", message => {
+function handle(message) {
 
     if(message.content.startsWith(lib.strings.prefix)) {
         let args = message.content.slice(lib.strings.prefix.length + 1).split(/ +/);
         let command = args.shift().toLowerCase();
 
-        if(command === "update") {
-            updateCards();
-        } else if(command === "locale") {
+        if(command === "locale") {
             if(args.length > 0) {
                 if(message.member.hasPermission("MANAGE_CHANNELS")) { setChannelLocale(message.channel.id, args[0]); }
             }
@@ -165,8 +162,11 @@ client.on("message", message => {
             if(match[1].trim() !== "")  { matches.push(match[1].trim()); }
         }
 
+        if(matches.length > 3) { return; }
+     
+
         matches.forEach(match => {
-            if(match === "reddit") {
+            if(match.toLowerCase() === "reddit") {
                 let msg = new Discord.RichEmbed();
                 msg.setTitle("Reddit");
                 msg.setColor("#f0d447");
@@ -190,6 +190,8 @@ client.on("message", message => {
                 let results = [];
                 for(let i = 0; i < _locales.length; ++i) {
                     results = fuses[_locales[i]].search(match);
+                    
+    
 
                     if(results.length !== 0) {
                         message.channel.send("https://gwent.one/" + _locales[i] + "/card/" + results[0].id);
@@ -199,6 +201,6 @@ client.on("message", message => {
             }
         });
     }
-});
+}
 
 client.login(process.env.DISCORD_TOKEN);
