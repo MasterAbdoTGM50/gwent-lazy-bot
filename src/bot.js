@@ -28,7 +28,7 @@ bot.client.once("ready", async () => {
     bot.actions = utils.lazyImport(path.join(__dirname, "actions"));
 
     bot.client.on("message", handleMessage);
-    console.log("GWENT Lazy Bot! Ready!!!")
+    console.log("GWENT Lazy Bot! Ready!!!");
 });
 
 function parseCards(cards) {
