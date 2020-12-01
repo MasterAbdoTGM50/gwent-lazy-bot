@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const utils = require("./../utils");
+const utils = require("../utils/utils");
 
 function buildCardEmbed(bot, card, locale) {
     let embed = new Discord.MessageEmbed();
