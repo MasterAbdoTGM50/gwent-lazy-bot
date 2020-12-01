@@ -1,6 +1,10 @@
 class Lisa {
     #keyPath;
     #rules = [];
+    #filters = [
+        function (rule, key) { return rule.key.includes(key) },
+        function (rule, key) { return rule.key === key; }
+    ];
 
     constructor(entries, keyPath) {
         this.#keyPath = keyPath;
@@ -18,11 +22,13 @@ class Lisa {
 
     search(key) {
         let keys = key.toLowerCase().split(/\s+/).map(key => key.trim());
-        let attempt = this.#filterRules(keys, (rule, key) => { return rule.key.includes(key); });
+
+        let attempt = this.#filterRules(keys, this.#filters[0]);
         let result = attempt;
-        if(result.length > 1) {
-            attempt = this.#filterRules(keys, (rule, key) => { return rule.key === key; });
+        for(let i = 1; i < this.#filters.length; ++i) {
+            attempt = this.#filterRules(keys, this.#filters[i]);
             if(attempt.length !== 0 && attempt.length < result.length) { result = attempt; }
+            if(attempt.length === 1) { break; }
         }
 
         return result;
