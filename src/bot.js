@@ -2,8 +2,8 @@ const Discord = require("discord.js");
 const path = require('path');
 const axios = require("axios");
 
-const utils = require("./utils")
-const Lisa = require("./lisa");
+const utils = require("./utils/utils")
+const Lisa = require("./utils/lisa");
 
 let bot = {
     client: new Discord.Client(),
