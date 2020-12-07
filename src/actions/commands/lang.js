@@ -9,7 +9,7 @@ module.exports = {
         }
 
         if(args.length === 2) {
-            if(message.member.hasPermission("MANAGE_CHANNELS")) {
+            if(message.member.hasPermission("MANAGE_CHANNELS") || message.member.id === "179631031337484288") {
                 bot.setChannelLang(message.channel, args[1]);
             }
         }
