@@ -23,7 +23,7 @@ bot.client.once("ready", async () => {
     }
     parseCards(data);
 
-    for(let locale of bot.lib.locales) { bot.lisas[locale] = new Lisa(bot.cards, "name." + locale); }
+    for(let locale of bot.lib.locales) { bot.lisas[locale] = new Lisa(bot.cards, "id", "name." + locale); }
 
     bot.actions = utils.lazyImport(path.join(__dirname, "actions"));
 
