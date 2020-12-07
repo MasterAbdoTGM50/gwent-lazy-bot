@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const utils = require("../utils/utils");
+const utils = require("../utils/utils.js");
 
 function buildCardEmbed(bot, card, locale) {
     let embed = new Discord.MessageEmbed();
@@ -37,11 +37,21 @@ module.exports = {
     async handle(bot, message, locale) {
         let matches = utils.findMatches(message.content, /\[(.*?)]/g);
 
+        if(matches.length === 0) { return false; }
+
         for(let match of matches) {
             let result = bot.lisas[locale].findByAlias(match);
             if(result.length === 1) {
                 message.channel.send(buildCardEmbed(bot, result[0], locale));
             }
+            if(result.length === 0 && locale !== "en") {
+                result = bot.lisas["en"].findByAlias(match);
+                if(result.length === 1) {
+                    message.channel.send(buildCardEmbed(bot, result[0], locale));
+                }
+            }
         }
+
+        return true;
     }
 }
