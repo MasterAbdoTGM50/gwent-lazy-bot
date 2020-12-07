@@ -9,7 +9,8 @@ const Lisa = require("./utils/lisa");
 let bot = {
     client: new Discord.Client(),
     lib: require("./data/lib.json"),
-    translations: require("./data/translations"),
+    nicknames: require("./data/nicknames.json"),
+    translations: require("./data/translations.json"),
     cards: [],
     lisas: {},
     db: {},
