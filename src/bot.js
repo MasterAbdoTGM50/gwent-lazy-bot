@@ -1,16 +1,31 @@
 const Discord = require("discord.js");
+const Datatore = require("nedb");
 const path = require('path');
 const axios = require("axios");
 
-const utils = require("./utils/utils")
+const utils = require("./utils/utils.js")
 const Lisa = require("./utils/lisa");
 
 let bot = {
     client: new Discord.Client(),
     lib: require("./data/lib.json"),
+    translations: require("./data/translations"),
     cards: [],
     lisas: {},
-    translations: require("./data/translations")
+    db: {},
+    getChannelLang: async(channel) => {
+        return new Promise((resolve) => {
+            bot.db.channels.findOne({ _id: channel.id }, (err, doc) => {
+                if(doc !== null) { resolve(doc.lang); }
+                resolve("en");
+            });
+        });
+    },
+    setChannelLang: (channel, lang) => {
+        if(bot.lib.locales.includes(lang.toLowerCase())) {
+            bot.db.channels.update({ _id: channel.id }, { $set: { lang: lang.toLowerCase() } }, { upsert: true });
+        }
+    }
 }
 
 bot.client.once("ready", async () => {
@@ -21,9 +36,11 @@ bot.client.once("ready", async () => {
             data = Object.values(res.data);
         })
     }
-    parseCards(data);
 
+    parseCards(data);
     for(let locale of bot.lib.locales) { bot.lisas[locale] = new Lisa(bot.cards, "id", "name." + locale); }
+
+    bot.db.channels = new Datatore({ filename: path.join(__dirname, "persistence/channels.nedb"), autoload: true });
 
     bot.actions = utils.lazyImport(path.join(__dirname, "actions"));
 
@@ -56,7 +73,7 @@ function parseCards(cards) {
 async function handleMessage(message) {
     if(message.author.bot)  return;
 
-    for(let action of bot.actions) { action.handle(bot, message, "en"); }
+    for(let action of bot.actions) { action.handle(bot, message, await bot.getChannelLang(message.channel)); }
 }
 
 bot.client.login(process.env.DISCORD_TOKEN);
