@@ -7,7 +7,7 @@ function buildCardEmbed(bot, card, locale) {
     if(card.categories[locale] !== "") { title += " - " + card.categories[locale]; }
     let url = "https://gwent.one/en/card/" + card.id;
     let thumb = "https://gwent.one/img/assets/medium/art/" + card.art + ".jpg";
-    if(card.type === "leader") { thumb = "https://gwent.one/img/icon/ability/" + card.id + ".png"}
+    if(card.type === "leader") { thumb = "https://gwent.one/img/icon/ability/" + card.id + ".png" }
     let color = bot.lib.colors[card.factions[0]];
     let faction = bot.translations[locale]["factions"][card.factions[0]];
     if(card.factions[1] !== "") { faction += " & " + bot.translations[locale]["factions"][card.factions[1]] }
@@ -38,9 +38,9 @@ module.exports = {
         let matches = utils.findMatches(message.content, /\[(.*?)]/g);
 
         for(let match of matches) {
-            let result = bot.lisas[locale].search(match);
+            let result = bot.lisas[locale].findByAlias(match);
             if(result.length === 1) {
-                message.channel.send(buildCardEmbed(bot, bot.cards[result[0]], locale));
+                message.channel.send(buildCardEmbed(bot, result[0], locale));
             }
         }
     }
