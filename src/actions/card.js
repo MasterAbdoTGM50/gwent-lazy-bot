@@ -36,9 +36,16 @@ function buildCardEmbed(bot, card, locale) {
 module.exports = {
     async handle(bot, message, locale) {
         let matches = utils.findMatches(message.content, /\[(.*?)]/g);
-        let langs = (locale === "en") ? ["en"] : [locale, "en"];
 
         for(let match of matches) {
+
+            let result = bot.nicknames.filter(nick => { return nick.name === match.toLowerCase() });
+            if(result.length === 1) {
+                message.channel.send(buildCardEmbed(bot, bot.lisas[locale].findByKey(result[0].id), locale));
+                return;
+            }
+
+            let langs = (locale === "en") ? ["en"] : [locale, "en"];
             for(let lang of langs) {
                 let result = bot.lisas[lang].findByAlias(match);
                 if(result.length === 1) {
