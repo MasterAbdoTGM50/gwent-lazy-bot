@@ -5,7 +5,7 @@ function buildCardEmbed(bot, card, locale) {
     let embed = new Discord.MessageEmbed();
     let title = card.name[locale];
     if(card.categories[locale] !== "") { title += " - " + card.categories[locale]; }
-    let url = "https://gwent.one/en/card/" + card.id;
+    let url = "https://gwent.one/" + locale + "/card/" + card.id;
     let thumb = "https://gwent.one/img/assets/medium/art/" + card.art + ".jpg";
     if(card.type === "leader") { thumb = "https://gwent.one/img/icon/ability/" + card.id + ".png" }
     let color = bot.lib.colors[card.factions[0]];
