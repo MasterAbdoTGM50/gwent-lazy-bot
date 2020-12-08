@@ -17,7 +17,7 @@ let bot = {
     getChannelLang: async(channel) => {
         return new Promise((resolve) => {
             bot.db.channels.findOne({ _id: channel.id }, (err, doc) => {
-                if(doc !== null) { resolve(doc.lang); }
+                if(doc !== null) { resolve(doc.lang !== undefined ? doc.lang : "en"); }
                 resolve("en");
             });
         });
