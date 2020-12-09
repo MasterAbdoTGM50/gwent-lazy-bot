@@ -34,7 +34,7 @@ bot will do it's best to find a match
 | Command         | Effect           |Usage              |
 |:----------------|:-----------------|:------------------|
 | update          | pulls the latest card data from our source | !lazy update |
-| locale (1)      | used in combination with a language code to set the channels preferred language | !lazy locale __ (2) |
+| lang set (1)      | used in combination with a language code to set the channels preferred language | !lazy lang set __ (2) |
 | credits         | displays those involved with the creation and maintenance of this bot / data | !lazy credits |
 | deck         	  | displays a short summary of the linked deck | !lazy deck _______ (3) |
 | last            | displays the last deck linked with the !lazy deck command in this channel, as long as it is within the last 100 messages  | !lazy last |
