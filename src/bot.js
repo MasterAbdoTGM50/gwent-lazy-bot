@@ -31,7 +31,7 @@ let bot = {
 
 bot.client.once("ready", async () => {
     let data;
-    if(process.env.LOCAL_GWENTONE) { data = require("./gwentone/cardlist.json"); }
+    if(process.env.LOCAL_GWENTONE) { console.log("GWENT Lazy Bot! Local!!!"); data = require("./gwentone/cardlist.json"); }
     else {
         await axios.get("https://gwent.one/api/cardlist?language=all&key=" + process.env.API_KEY).then(res => {
             data = Object.values(res.data);
