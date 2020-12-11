@@ -60,5 +60,9 @@
     { "id": 200040, "name": "craitesword" },
     { "id": 202667, "name": "reddit" },
     { "id": 202785, "name": "leo" },
-    { "id": 202554, "name": "passiflora" }
+    { "id": 202554, "name": "passiflora" },
+    { "id": 202816, "name": "bear witcher" },
+    { "id": 202796, "name": "viper witcher" },
+    { "id": 202806, "name": "cat witcher" },
+    { "id": 202826, "name": "griffin witcher" }
 ]
