@@ -58,7 +58,7 @@ module.exports = {
 
             let result = bot.nicknames.filter(nick => { return nick.name === match.toLowerCase() });
             if(result.length === 1) {
-                if(match === "reddit") { message.channel.send(buildMemeCardEmbed(bot, bot.lisas[locale].findByKey(result[0].id), locale)); }
+                if(match.toLowerCase() === "reddit") { message.channel.send(buildMemeCardEmbed(bot, bot.lisas[locale].findByKey(result[0].id), locale)); }
                 else {
                     message.channel.send(buildCardEmbed(bot, bot.lisas[locale].findByKey(result[0].id), locale));
                 }
