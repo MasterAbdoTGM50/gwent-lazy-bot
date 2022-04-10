@@ -4,7 +4,7 @@
     { "id": 112208, "name": "deou" },
     { "id": 202349, "name": "ardaenye" },
     { "id": 202349, "name": "ard'aenye" },
-    { "id": 152403, "name": "jemoni" },
+    { "id": 203092, "name": "jemoni" },
     { "id": 142103, "name": "isegrim" },
     { "id": 202269, "name": "kvothe" },
     { "id": 201698, "name": "mortin" },
@@ -95,5 +95,7 @@
     { "id": 202981, "name": "melusine" },
     { "id": 202601, "name": "offering" },
     { "id": 132305, "name": "nekker" },
-    { "id": 202504, "name": "siege" }
+    { "id": 202504, "name": "siege" },
+	{ "id": 203111, "name": "prophet" },
+	{ "id": 202433, "name": "mutant" }
 ]
