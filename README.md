@@ -43,6 +43,14 @@ bot will do it's best to find a match
 (2) Supported language codes include: `"en", "cn", "de", "es", "fr", "it", "jp", "kr", "mx", "pl", "pt", "ru"`  
 (3) Links must be a deck URL from the [deck section](https://www.playgwent.com/en/decks) of the official Gwent site, as in the image above.
 
+## Privacy Policy
+
+This Privacy Policy explains how we collect, use, store, protect, and share your personal information through our services.
+
+Short Version: We don't store and of your data :)
+
+The only way Gwent Lazy Bot uses your messages is by reading said message from a channel it can read from then parse it to figure out which cards you mentioned. We don't store any of your messages nor any statistics on the usage of the commands.
+
 ## Credits
 
 1. **MasterAbdoTGM50:** Author
