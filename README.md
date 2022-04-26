@@ -47,9 +47,25 @@ bot will do it's best to find a match
 
 This Privacy Policy explains how we collect, use, store, protect, and share your personal information through our services.
 
-Short Version: We don't store and of your data :)
+### Short Version: 
+We don't store and of your data :)
 
 The only way Gwent Lazy Bot uses your messages is by reading said message from a channel it can read from then parse it to figure out which cards you mentioned. We don't store any of your messages nor any statistics on the usage of the commands.
+
+### What information will be collected?
+None at all. The only information used is the message content itself to get the names of the cards to be mentioned and that data is discarded after that.
+
+### How will the information be stored? And for how long?
+It's not stored in any persisted in any way. It's loaded in memory once for parsing then discarded immeditetly. It's not persisted to any physical layer or way.
+
+### Which security measures will protect the information?
+Since the bot doesn't store any data there is no need for such measures.
+
+### Will this information be shared with others?
+Not at all since there is no data stored and no live statistics are even done on the usage.
+
+### How can you contact me?
+I'm available most of the time on the GWENT Discord channel. If you have any concerns feel free to send them to me right away.
 
 ## Credits
 
