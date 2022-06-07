@@ -6,7 +6,7 @@ function buildCardEmbed(bot, card, locale) {
     let title = card.name[locale];
     if(card.categories[locale] !== "") { title += " - " + card.categories[locale]; }
     let url = "https://gwent.one/" + locale + "/card/" + card.id;
-    let thumb = "https://gwent.one/img/assets/medium/art/" + card.art + ".jpg";
+    let thumb = "https://gwent.one/image/gwent/assets/card/art/medium/" + card.art + ".jpg";
     if(card.type === "leader") { thumb = "https://gwent.one/img/icon/ability/" + card.id + ".png" }
     let color = bot.lib.colors[card.factions[0]];
     let faction = bot.translations[locale]["factions"][card.factions[0]];
