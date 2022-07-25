@@ -54,6 +54,8 @@ module.exports = {
     async handle(bot, message, locale) {
         let matches = utils.findMatches(message.content, /\[(.*?)]/g);
 
+        let matchedCards = []; //Prevent cards that were already matched and sent from being sent again
+
         for(let match of matches) {
 
             let result = bot.nicknames.filter(nick => { return nick.name === match.toLowerCase() });
@@ -69,8 +71,12 @@ module.exports = {
             for(let lang of langs) {
                 let result = bot.lisas[lang].findByAlias(match);
                 if(result.length === 1) {
-                    message.channel.send(buildCardEmbed(bot, result[0], locale));
-                    break;
+                    let card = result[0];
+                    if (!matchedCards.includes(card)) {
+                        message.channel.send(buildCardEmbed(bot, card, locale));
+                        matchedCards.push(card);
+                        break;
+                    }
                 }
             }
         }
