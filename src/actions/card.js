@@ -54,6 +54,8 @@ module.exports = {
     async handle(bot, message, locale) {
         let matches = utils.findMatches(message.content, /\[(.*?)]/g);
 
+        let matchedCards = []; //Prevent cards that were already matched and sent from being sent again
+
         for(let match of matches) {
 
             let result = bot.nicknames.filter(nick => { return nick.name === match.toLowerCase() });
@@ -64,8 +66,6 @@ module.exports = {
                 }
                 return;
             }
-
-            let matchedCards = []; //Prevent cards that were already matched and sent from being sent again
 
             let langs = (locale === "en") ? ["en"] : [locale, "en"];
             for(let lang of langs) {
