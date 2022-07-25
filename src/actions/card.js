@@ -65,16 +65,16 @@ module.exports = {
                 return;
             }
 
-            let matchedResults = []; //Prevent results that were already matched and sent from being sent again
+            let matchedCards = []; //Prevent cards that were already matched and sent from being sent again
 
             let langs = (locale === "en") ? ["en"] : [locale, "en"];
             for(let lang of langs) {
                 let result = bot.lisas[lang].findByAlias(match);
                 if(result.length === 1) {
-                    let singleResult = result[0];
-                    if (!matchedResults.includes(singleResult)) {
-                        message.channel.send(buildCardEmbed(bot, singleResult, locale));
-                        matchedResults.push(singleResult);
+                    let card = result[0];
+                    if (!matchedCards.includes(card)) {
+                        message.channel.send(buildCardEmbed(bot, card, locale));
+                        matchedCards.push(card);
                         break;
                     }
                 }
