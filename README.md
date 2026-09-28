@@ -1,85 +1,65 @@
-Gwent Lazy Bot
-==============
+# GWENT Lazy Bot
 
-____
+A Discord bot that shows up-to-date card details for [GWENT](https://www.playgwent.com), CD PROJEKT RED's card game.
+All card data comes from [gwent.one](https://gwent.one).
 
-A Discord bot for grabbing up to date card stats for CDPR's CCG [GWENT](https://www.playgwent.com).  
-All card data, including previous versions, is sourced from and can be found on [gwent.one](https://gwent.one/)
-
-### [Invite link for your server](https://discord.com/oauth2/authorize?client_id=631501475746545698&scope=bot+applications.commands&permissions=52224)
-
-____
+**[Add the bot to your server](https://discord.com/oauth2/authorize?client_id=631501475746545698&scope=bot+applications.commands&permissions=52224)**
 
 ## Features
 
-* Pull any card by writing its name in square brackets: `[card name]`
-* Language localization for every language supported in game
-* Channel specific language preferences
-* Deck summaries for playgwent.com deck links
-* Card data updates itself when a new game version is released
-* Easter eggs
-
-## Usage
-
-* To pull a card just write its name within square brackets: `[card name]`. Input does not have to be exact, the
-bot will do its best to find a match. Up to 10 cards per message.
-* Everything else is a slash command: type `/` in Discord to see them.
-
-![alt text](https://i.imgur.com/ugh7Pyx.png")
-
-![alt text](https://i.imgur.com/XSmECNl.png")
-
-![alt text](https://i.imgur.com/6a6RzA2.jpg")
+- Look up any card by writing its name in square brackets, like `[ciri]`, anywhere in a message
+- Card text in every language the game supports, set per channel
+- Summaries of playgwent.com decks
+- Card data that updates itself when a new game version is released
+- A few easter eggs
 
 ## Commands
 
-| Command | Effect |
-|:--------|:-------|
-| `[card name]` | shows the card (written anywhere in a message, not a slash command) |
-| `/lang show` | shows the language cards are displayed in, in this channel |
-| `/lang set language:` (1) | sets the language cards are displayed in, in this channel |
-| `/deck link:` (2) | displays a short summary of a playgwent.com deck |
-| `/deck` | without a link: shows the last deck shown with `/deck` in this channel |
-| `/sound name:` | plays a classic |
-| `/about` | what the bot is, who made and maintains it, and the game version of the card data |
-
-(1) Can only be used by members with the **Manage Channels** permission  
-(2) Links must be a deck or deck guide URL from the [deck section](https://www.playgwent.com/en/decks) of the official Gwent site
-
-The old `!lazy` commands have been replaced by the slash commands above. `!lazy last` is now `/deck` without a link.
-Unlike before, only decks shown through `/deck` are remembered; deck links posted in chat are no longer picked up.
+| Command | What it does |
+|---|---|
+| `[card name]` | Shows the card. Write it anywhere in a message; the name doesn't have to be exact. Up to 10 cards per message. |
+| `/lang show` | Shows the language cards are displayed in, in this channel. |
+| `/lang set` | Sets the language for this channel. Needs the **Manage Channels** permission. |
+| `/deck link:` | Shows a summary of a deck or deck guide from [playgwent.com](https://www.playgwent.com/en/decks). |
+| `/deck` | Without a link, shows the last deck shown with `/deck` in this channel. |
+| `/sound` | Plays a classic. |
+| `/about` | How to use the bot, credits, and the game version of the card data. |
 
 ## Privacy Policy
 
-This Privacy Policy explains what information the bot uses, stores and shares.
+This policy explains what information the bot uses, stores and shares.
 
-### Short Version:
-We don't store any of your messages or any personal data :)
+**In short:** the bot doesn't store your messages or any personal data.
 
 ### What information is used?
-The bot reads messages in channels it can see only to look for card names written in `[square brackets]`.
-Message content is processed in memory and discarded immediately. It is never stored or logged.
-Deck links given to `/deck` are fetched from playgwent.com to build the summary.
 
-### What information is stored? And for how long?
-Per channel, and only when someone uses the matching command: the language chosen with `/lang set`, and the last
-deck link shown with `/deck` (so `/deck` without a link can show it again). Each is kept until it is replaced.
-No messages, user IDs, usernames or usage statistics are stored.
+The bot reads messages in channels it can see only to look for card names written in `[square brackets]`. Message
+content is processed in memory and discarded immediately; it is never stored or logged. Deck links given to `/deck`
+are fetched from playgwent.com to build the summary.
 
-### Which security measures will protect the information?
-The only stored data is a channel ID with a language code and a public deck link. It is kept on the bot's own
-server and is never exposed.
+### What information is stored, and for how long?
 
-### Will this information be shared with others?
+Per channel, and only when someone uses the matching command: the language chosen with `/lang set`, and the last deck
+link shown with `/deck`, so `/deck` without a link can show it again. Each is kept until it is replaced. No messages,
+user IDs, usernames or usage statistics are stored.
+
+### How is it protected?
+
+The only stored data is a channel ID with a language code and a public deck link. It is kept on the bot's own server
+and is never exposed.
+
+### Is it shared with anyone?
+
 No.
 
-### How can you contact me?
-I'm available most of the time on the GWENT Discord channel. If you have any concerns feel free to send them to me right away.
+### How can I contact you?
+
+I'm usually around on the GWENT Discord server; feel free to send any concerns there.
 
 ## Running your own copy
 
-Requirements: [Bun](https://bun.sh) 1.4 or newer, about 250 MB of RAM (roughly 90 MB with all card data loaded,
-more once connected to many servers), about 15 MB of disk, and outbound HTTPS. The bot needs no open ports.
+Requirements: [Bun](https://bun.sh) 1.4 or newer, about 250 MB of RAM (roughly 90 MB with all card data loaded, more
+once connected to many servers), about 15 MB of disk, and outbound HTTPS. The bot needs no open ports.
 
 ```bash
 bun install
@@ -150,7 +130,7 @@ Card data comes from gwent.one's public API (`api.gwent.one`, key `data`). The b
 
 ```
 storage/
-├── bot.sqlite                    per-channel language and last /deck link (a few KB); back this up
+├── bot.sqlite                    per-channel language and last /deck link (a few KB); keep it when moving servers
 └── cache/                        safe to delete; the bot downloads the cards again
     ├── cards.json                every card in all 12 languages for the current game version (~5.5 MB)
     └── cards.previous.json       the same for the version before it, kept for comparing patches
@@ -210,8 +190,8 @@ extension for your editor.
 
 ## Credits
 
-1. **MasterAbdoTGM50:** Author
-2. **teddybee_r:** Owner and creator of [gwent.one](https://gwent.one/)  
-3. **Pinkie the Smart Elf:** Creator of the profile picture for the bot  
-4. **Jemoni:** Maintaining the bot in the author's absence and helping create the profile picture for the bot  
-5. **Mortin:** Maintaining the bot in the author's absence and creating/maintaining documentation 
+- **MasterAbdoTGM50:** author
+- **teddybee_r:** owner and creator of [gwent.one](https://gwent.one), where all card data comes from
+- **Pinkie the Smart Elf:** creator of the bot's profile picture
+- **Jemoni:** maintained the bot in the author's absence and helped create the profile picture
+- **Mortin:** maintained the bot in the author's absence and created and maintained its documentation 
