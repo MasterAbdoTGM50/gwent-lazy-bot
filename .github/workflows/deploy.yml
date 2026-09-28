@@ -1,10 +1,10 @@
-# Checks every push and pull request; a push to master that passes is deployed to the Droplet.
+# Checks every push and pull request; a push to main that passes is deployed to the server.
 # Setup (secrets, deploy key) is described in the README, under "Deployment".
 name: CI & Deploy
 
 on:
   push:
-    branches: [master]
+    branches: [main]
   pull_request:
   workflow_dispatch:
 
@@ -28,7 +28,7 @@ jobs:
 
   deploy:
     needs: check
-    if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     environment: production
     steps:

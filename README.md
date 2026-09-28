@@ -80,14 +80,14 @@ Production runs on a small Ubuntu 24.04 server (1 GB RAM) as a systemd service, 
   `/home/lazybot/gwent-lazy-bot`, starts on boot, restarts after crashes (5 s, backing off to 5 min), 512 MB memory
   limit, and can only write `storage/`.
 - **Logs** go to journald and are deleted after 15 days (`deploy/journald-retention.conf`).
-- **Deploys:** every push to `master` runs lint, type-check and tests in GitHub Actions; if they pass, the workflow
+- **Deploys:** every push to `main` runs lint, type-check and tests in GitHub Actions; if they pass, the workflow
   connects over SSH with a deploy key that can only run `scripts/deploy.sh`, which checks out that commit, installs
   packages and restarts the service (allowed by `deploy/sudoers-gwent-lazy-bot`). Re-running an older run rolls back.
 
 **New server**, as root on a fresh Ubuntu 24.04 machine:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/MasterAbdoTGM50/gwent-lazy-bot/master/scripts/setup-server.sh | bash
+curl -fsSL https://raw.githubusercontent.com/MasterAbdoTGM50/gwent-lazy-bot/main/scripts/setup-server.sh | bash
 ```
 
 It is safe to re-run, and ends by listing what's left: put the token in `/home/lazybot/gwent-lazy-bot/.env`, run

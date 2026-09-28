@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Turns a fresh Ubuntu 24.04 server into one that runs the bot under systemd. Run as root:
 #
-#   curl -fsSL https://raw.githubusercontent.com/MasterAbdoTGM50/gwent-lazy-bot/master/scripts/setup-server.sh | bash
+#   curl -fsSL https://raw.githubusercontent.com/MasterAbdoTGM50/gwent-lazy-bot/main/scripts/setup-server.sh | bash
 #
 # Safe to re-run: finished steps are skipped and a running bot is not restarted. It never touches
 # SSH settings or secrets. When the token is missing it stops before starting the bot and says
