@@ -1,0 +1,807 @@
+{
+ "version": "14.8.0",
+ "en": [
+  {
+   "id": {
+    "art": 1007,
+    "card": 112101,
+    "audio": 1207
+   },
+   "attributes": {
+    "set": "BaseSet",
+    "type": "Unit",
+    "armor": 0,
+    "color": "Gold",
+    "power": 6,
+    "reach": 0,
+    "artist": "Anna Podedworna",
+    "rarity": "Legendary",
+    "faction": "Neutral",
+    "related": "",
+    "provision": 9,
+    "factionSecondary": ""
+   },
+   "name": "Ciri",
+   "category": "Witcher",
+   "ability": "Deploy: Damage 3 enemy units by 1.\nWhen you lose a round, move self back to your hand.\n",
+   "flavor": "I go wherever I please, whenever I please."
+  },
+  {
+   "id": {
+    "art": 1008,
+    "card": 112102,
+    "audio": 1222
+   },
+   "attributes": {
+    "set": "BaseSet",
+    "type": "Unit",
+    "armor": 0,
+    "color": "Gold",
+    "power": 2,
+    "reach": 0,
+    "artist": "Anna Podedworna",
+    "rarity": "Legendary",
+    "faction": "Neutral",
+    "related": "",
+    "provision": 10,
+    "factionSecondary": ""
+   },
+   "name": "Geralt: Igni",
+   "category": "Witcher",
+   "ability": "Deploy: Destroy the highest-power unit(s) on an enemy row with a total of 40 or more power.\nInitiative: Destroy the highest-power unit(s) on an enemy row with a total of 25 or more power instead.\n",
+   "flavor": "A twist of a witcher's fingers can light a lamp… or incinerate a foe."
+  },
+  {
+   "id": {
+    "art": 1009,
+    "card": 112103,
+    "audio": 1005
+   },
+   "attributes": {
+    "set": "Unmillable",
+    "type": "Unit",
+    "armor": 0,
+    "color": "Gold",
+    "power": 3,
+    "reach": 0,
+    "artist": "Marek Madej",
+    "rarity": "Legendary",
+    "faction": "Neutral",
+    "related": "",
+    "provision": 10,
+    "factionSecondary": ""
+   },
+   "name": "Geralt of Rivia",
+   "category": "Witcher",
+   "ability": "Deploy: Destroy an enemy unit with 9 or more power.\n",
+   "flavor": "If that's what it takes to save the world, it's better to let that world die."
+  },
+  {
+   "id": {
+    "art": 1016,
+    "card": 112110,
+    "audio": 1001
+   },
+   "attributes": {
+    "set": "BaseSet",
+    "type": "Unit",
+    "armor": 0,
+    "color": "Gold",
+    "power": 6,
+    "reach": 0,
+    "artist": "Marek Madej",
+    "rarity": "Legendary",
+    "faction": "Neutral",
+    "related": "",
+    "provision": 10,
+    "factionSecondary": ""
+   },
+   "name": "Ciri: Dash",
+   "category": "Witcher",
+   "ability": "Timer 4: Draw a card.\n",
+   "flavor": "Know when fairy tales cease to be tales? When people start believing them."
+  },
+  {
+   "id": {
+    "art": 1017,
+    "card": 112111,
+    "audio": 1221
+   },
+   "attributes": {
+    "set": "BaseSet",
+    "type": "Unit",
+    "armor": 0,
+    "color": "Gold",
+    "power": 4,
+    "reach": 0,
+    "artist": "Bartłomiej Gaweł",
+    "rarity": "Legendary",
+    "faction": "Neutral",
+    "related": "",
+    "provision": 7,
+    "factionSecondary": ""
+   },
+   "name": "Geralt: Aard",
+   "category": "Witcher",
+   "ability": "Deploy (Melee): Damage 3 enemy units by 2, then move them to the Ranged row.\n",
+   "flavor": "A blast of concentrated energy that pummels everything in its path. Great for when you forget your keys."
+  },
+  {
+   "id": {
+    "art": 1037,
+    "card": 112403,
+    "audio": 1152
+   },
+   "attributes": {
+    "set": "NonOwnable",
+    "type": "Special",
+    "armor": 0,
+    "color": "Gold",
+    "power": 0,
+    "reach": 0,
+    "artist": "Grafit Studio",
+    "rarity": "Legendary",
+    "faction": "Neutral",
+    "related": "",
+    "provision": 0,
+    "factionSecondary": ""
+   },
+   "name": "Duda: Companion",
+   "category": "",
+   "ability": "Doomed.\nBoost all units on a row by 1.\n",
+   "flavor": "Knows one hundred words – eighty of them curses, the rest, connectors."
+  },
+  {
+   "id": {
+    "art": 5192,
+    "card": 122105,
+    "audio": 1844
+   },
+   "attributes": {
+    "set": "Novigrad",
+    "type": "Ability",
+    "armor": 0,
+    "color": "Leader",
+    "power": 0,
+    "reach": 0,
+    "artist": "Marta Fleter",
+    "rarity": "Legendary",
+    "faction": "Syndicate",
+    "related": "",
+    "provision": 15,
+    "factionSecondary": ""
+   },
+   "name": "Lined Pockets",
+   "category": "Leader",
+   "ability": "Order: Gain 1 Coin.\nCharges: 6\nWhenever you play a Crime card, gain 1 Coin.\n\nThis ability adds 15 provisions to your deck's provisions limit.\n",
+   "flavor": "Really believe you can dupe me with that tale you just pulled from your arse?"
+  },
+  {
+   "id": {
+    "art": 1108,
+    "card": 122309,
+    "audio": 1020
+   },
+   "attributes": {
+    "set": "Unmillable",
+    "type": "Unit",
+    "armor": 0,
+    "color": "Bronze",
+    "power": 4,
+    "reach": 0,
+    "artist": "Filipe Pagliuso",
+    "rarity": "Common",
+    "faction": "Northern Realms",
+    "related": "",
+    "provision": 4,
+    "factionSecondary": ""
+   },
+   "name": "Siege Support",
+   "category": "Human, Soldier",
+   "ability": "Deploy (Melee): Reduce the Cooldown of an allied unit by 1.\nDeploy (Ranged): Boost an allied unit by 1.\nOrder: Give an allied unit Zeal.\n",
+   "flavor": "You gotta recalibrate the arm by five degrees.\\nDo what by the what now?"
+  },
+  {
+   "id": {
+    "art": 1577,
+    "card": 201523,
+    "audio": 1449
+   },
+   "attributes": {
+    "set": "BaseSet",
+    "type": "Unit",
+    "armor": 0,
+    "color": "Gold",
+    "power": 3,
+    "reach": 0,
+    "artist": "Anna Podedworna",
+    "rarity": "Legendary",
+    "faction": "Neutral",
+    "related": "",
+    "provision": 10,
+    "factionSecondary": ""
+   },
+   "name": "Geralt: Yrden",
+   "category": "Witcher",
+   "ability": "Deploy (Melee): Reset the power of all units on a row.\nAdrenaline 2: Reset the power of all units on an allied row instead.\n",
+   "flavor": "He lay down next to Adda's mummified remains, drawing the Yrden Sign on the inner side of her sarcophagus' lid."
+  },
+  {
+   "id": {
+    "art": 1615,
+    "card": 201626,
+    "audio": 1480
+   },
+   "attributes": {
+    "set": "BaseSet",
+    "type": "Unit",
+    "armor": 0,
+    "color": "Gold",
+    "power": 8,
+    "reach": 0,
+    "artist": "Lorenzo Mastroianni",
+    "rarity": "Legendary",
+    "faction": "Neutral",
+    "related": "203123",
+    "provision": 9,
+    "factionSecondary": ""
+   },
+   "name": "Ciri: Nova",
+   "category": "Witcher",
+   "ability": "Deploy: If your starting deck does not have cards with a provision cost of 10 or more, gain Resilience, Shield, and Veil.\nCiri: Nova and Golden Nekker are excluded from this condition.\n",
+   "flavor": "Zireael possesses a great power she cannot control. She is a danger - to herself, to others. Until she learns to control it, she should remain isolated."
+  },
+  {
+   "id": {
+    "art": 1641,
+    "card": 201772,
+    "audio": 1567
+   },
+   "attributes": {
+    "set": "BaseSet",
+    "type": "Unit",
+    "armor": 0,
+    "color": "Gold",
+    "power": 3,
+    "reach": 0,
+    "artist": "Dave Rapoza",
+    "rarity": "Legendary",
+    "faction": "Neutral",
+    "related": "",
+    "provision": 11,
+    "factionSecondary": ""
+   },
+   "name": "Geralt: Professional",
+   "category": "Witcher",
+   "ability": "Deploy: Damage 3 units by 1. If you control another Witcher, also gain Zeal.\nOrder: Damage an enemy unit by 3. If its power is a multiple of 3, destroy it instead.\n",
+   "flavor": "I accepted a job once, did it. Asked to choose my reward, I invoked the Law of Surprise."
+  },
+  {
+   "id": {
+    "art": 1909,
+    "card": 202294,
+    "audio": 1742
+   },
+   "attributes": {
+    "set": "Novigrad",
+    "type": "Unit",
+    "armor": 0,
+    "color": "Bronze",
+    "power": 5,
+    "reach": 0,
+    "artist": "Grafit Studio",
+    "rarity": "Common",
+    "faction": "Syndicate",
+    "related": "",
+    "provision": 4,
+    "factionSecondary": "Nilfgaard"
+   },
+   "name": "Courier",
+   "category": "Human, Agent, Blindeyes",
+   "ability": "Deploy (Melee): Look at the top 3 cards from your opponent's deck and move one to the top.\nDeploy (Ranged): Look at the top 3 cards from your deck and move one to the top.\n",
+   "flavor": "'Tis not steel and blood that wins wars, but information."
+  },
+  {
+   "id": {
+    "art": 1916,
+    "card": 202396,
+    "audio": 1909
+   },
+   "attributes": {
+    "set": "Iron Judgment",
+    "type": "Unit",
+    "armor": 2,
+    "color": "Gold",
+    "power": 3,
+    "reach": 0,
+    "artist": "Manuel Castanon",
+    "rarity": "Legendary",
+    "faction": "Neutral",
+    "related": "",
+    "provision": 9,
+    "factionSecondary": ""
+   },
+   "name": "Geralt: Axii",
+   "category": "Witcher",
+   "ability": "Deploy: Seize a unit with power up to the number of allied Witchers on this row.\n",
+   "flavor": "Placing his left arm around the horse's neck, Geralt makes the Axii sign with the fingers of his right hand above the steed's head and whispers the incantation."
+  },
+  {
+   "id": {
+    "art": 2284,
+    "card": 202572,
+    "audio": 1841
+   },
+   "attributes": {
+    "set": "BaseSet",
+    "type": "Ability",
+    "armor": 0,
+    "color": "Leader",
+    "power": 0,
+    "reach": 0,
+    "artist": "Marta Fleter",
+    "rarity": "Legendary",
+    "faction": "Monster",
+    "related": "132313",
+    "provision": 16,
+    "factionSecondary": ""
+   },
+   "name": "Overwhelming Hunger",
+   "category": "Leader",
+   "ability": "Order: Destroy an allied unit, then Spawn an Ekimmara on its row and boost it by the destroyed unit's power.\nCharges: 2\n\nThis ability adds 16 provisions to your deck's provision limit.\n",
+   "flavor": ""
+  },
+  {
+   "id": {
+    "art": 2183,
+    "card": 202667,
+    "audio": 2033
+   },
+   "attributes": {
+    "set": "Master Mirror",
+    "type": "Unit",
+    "armor": 0,
+    "color": "Bronze",
+    "power": 3,
+    "reach": 0,
+    "artist": "Oleksandr Kozachenko",
+    "rarity": "Common",
+    "faction": "Nilfgaard",
+    "related": "",
+    "provision": 4,
+    "factionSecondary": ""
+   },
+   "name": "Angry Mob",
+   "category": "Human",
+   "ability": "Deploy: Damage an enemy unit by 2.\nConspiracy: Boost self by 2.\n",
+   "flavor": "Wanna know their secret? They are always angry."
+  },
+  {
+   "id": {
+    "art": 2369,
+    "card": 202781,
+    "audio": 2127
+   },
+   "attributes": {
+    "set": "Way of the Witcher",
+    "type": "Unit",
+    "armor": 0,
+    "color": "Gold",
+    "power": 1,
+    "reach": 0,
+    "artist": "Oleksandr Kozachenko",
+    "rarity": "Legendary",
+    "faction": "Neutral",
+    "related": "",
+    "provision": 9,
+    "factionSecondary": ""
+   },
+   "name": "Geralt: Quen",
+   "category": "Witcher",
+   "ability": "Shield. \nDeploy: Play a Witcher from your deck.\nAdrenaline 4: Also give it a Shield.\n",
+   "flavor": "Geralt, feeling the iron taste of blood in his mouth, shouted a spell, throwing his hand out in front of him with his fingers open in the Quen Sign."
+  }
+ ],
+ "de": [
+  {
+   "id": {
+    "art": 1007,
+    "card": 112101,
+    "audio": 1207
+   },
+   "attributes": {
+    "set": "BaseSet",
+    "type": "Unit",
+    "armor": 0,
+    "color": "Gold",
+    "power": 6,
+    "reach": 0,
+    "artist": "Anna Podedworna",
+    "rarity": "Legendary",
+    "faction": "Neutral",
+    "related": "",
+    "provision": 9,
+    "factionSecondary": ""
+   },
+   "name": "Ciri",
+   "category": "Hexer",
+   "ability": "Einsatz: Füge 3 gegnerischen Einheiten 1 Schaden zu.\nNimm diese Einheit zurück auf die Hand, wann immer du eine Runde verlierst.\n",
+   "flavor": "Ich gehe, wohin und wann immer ich will."
+  },
+  {
+   "id": {
+    "art": 1008,
+    "card": 112102,
+    "audio": 1222
+   },
+   "attributes": {
+    "set": "BaseSet",
+    "type": "Unit",
+    "armor": 0,
+    "color": "Gold",
+    "power": 2,
+    "reach": 0,
+    "artist": "Anna Podedworna",
+    "rarity": "Legendary",
+    "faction": "Neutral",
+    "related": "",
+    "provision": 10,
+    "factionSecondary": ""
+   },
+   "name": "Geralt: Igni",
+   "category": "Hexer",
+   "ability": "Einsatz: Zerstöre die stärkste(n) Einheit(en) in einer gegnerischen Reihe mit einer Gesamtstärke von mindestens 40.\nInitiative: Zerstöre stattdessen die stärkste(n) Einheit(en) in einer gegnerischen Reihe mit einer Gesamtstärke von mindestens 25.\n",
+   "flavor": "Das Fingerschnippen eines Hexers kann eine Lampe entzünden ... oder einen Feind einäschern."
+  },
+  {
+   "id": {
+    "art": 1009,
+    "card": 112103,
+    "audio": 1005
+   },
+   "attributes": {
+    "set": "Unmillable",
+    "type": "Unit",
+    "armor": 0,
+    "color": "Gold",
+    "power": 3,
+    "reach": 0,
+    "artist": "Marek Madej",
+    "rarity": "Legendary",
+    "faction": "Neutral",
+    "related": "",
+    "provision": 10,
+    "factionSecondary": ""
+   },
+   "name": "Geralt von Riva",
+   "category": "Hexer",
+   "ability": "Einsatz: Zerstöre eine gegnerische Einheit mit mindestens 9 Stärke.\n",
+   "flavor": "Wenn das nötig ist, um die Welt zu retten, ist es besser, wenn sie stirbt."
+  },
+  {
+   "id": {
+    "art": 1016,
+    "card": 112110,
+    "audio": 1001
+   },
+   "attributes": {
+    "set": "BaseSet",
+    "type": "Unit",
+    "armor": 0,
+    "color": "Gold",
+    "power": 6,
+    "reach": 0,
+    "artist": "Marek Madej",
+    "rarity": "Legendary",
+    "faction": "Neutral",
+    "related": "",
+    "provision": 10,
+    "factionSecondary": ""
+   },
+   "name": "Ciri: Sprint",
+   "category": "Hexer",
+   "ability": "Timer 4: Ziehe eine Karte.\n",
+   "flavor": "Märchen sind keine Märchen mehr, wenn die Leute anfangen, an sie zu glauben."
+  },
+  {
+   "id": {
+    "art": 1017,
+    "card": 112111,
+    "audio": 1221
+   },
+   "attributes": {
+    "set": "BaseSet",
+    "type": "Unit",
+    "armor": 0,
+    "color": "Gold",
+    "power": 4,
+    "reach": 0,
+    "artist": "Bartłomiej Gaweł",
+    "rarity": "Legendary",
+    "faction": "Neutral",
+    "related": "",
+    "provision": 7,
+    "factionSecondary": ""
+   },
+   "name": "Geralt: Aard",
+   "category": "Hexer",
+   "ability": "Einsatz (Nahkampf): Füge 3 gegnerischen Einheiten 2 Schaden zu und verschiebe sie dann in die Fernkampf-Reihe.\n",
+   "flavor": "Ein Stoß konzentrierter Energie, der alles abräumt, was im Weg steht. Nützlich, wenn man den Schlüssel vergessen hat."
+  },
+  {
+   "id": {
+    "art": 1037,
+    "card": 112403,
+    "audio": 1152
+   },
+   "attributes": {
+    "set": "NonOwnable",
+    "type": "Special",
+    "armor": 0,
+    "color": "Gold",
+    "power": 0,
+    "reach": 0,
+    "artist": "Grafit Studio",
+    "rarity": "Legendary",
+    "faction": "Neutral",
+    "related": "",
+    "provision": 0,
+    "factionSecondary": ""
+   },
+   "name": "Duda: Feldmarschall",
+   "category": "",
+   "ability": "Verdammt.\nVerbessere alle Einheiten in einer Reihe um 1.\n",
+   "flavor": "Er kennt hundert Wörter - achtzig Flüche und zwanzig Konnektoren."
+  },
+  {
+   "id": {
+    "art": 5192,
+    "card": 122105,
+    "audio": 1844
+   },
+   "attributes": {
+    "set": "Novigrad",
+    "type": "Ability",
+    "armor": 0,
+    "color": "Leader",
+    "power": 0,
+    "reach": 0,
+    "artist": "Marta Fleter",
+    "rarity": "Legendary",
+    "faction": "Syndicate",
+    "related": "",
+    "provision": 15,
+    "factionSecondary": ""
+   },
+   "name": "Vollgestopfte Taschen",
+   "category": "Anführer",
+   "ability": "Befehl: Erhalte 1 Münzen. Ladungen: 6.\nWann immer du eine Verbrechenkarte ausspielst, erhalte 1 Münzen.\n\nDiese Fähigkeit erhöht das Decklimit für Rekrutierungskosten um 15.\n",
+   "flavor": "Glaubst du wirklich, du kannst mich mit der Geschichte überlisten, die du dir soeben ausgedacht hast?"
+  },
+  {
+   "id": {
+    "art": 1108,
+    "card": 122309,
+    "audio": 1020
+   },
+   "attributes": {
+    "set": "Unmillable",
+    "type": "Unit",
+    "armor": 0,
+    "color": "Bronze",
+    "power": 4,
+    "reach": 0,
+    "artist": "Filipe Pagliuso",
+    "rarity": "Common",
+    "faction": "Northern Realms",
+    "related": "",
+    "provision": 4,
+    "factionSecondary": ""
+   },
+   "name": "Belagerungshelfer",
+   "category": "Mensch, Soldat",
+   "ability": "Einsatz (Nahkampf): Verringere die Abklingzeit einer verbündeten Einheit um 1.\nEinsatz (Fernkampf): Verbessere eine verbündete Einheit um 1.\nBefehl: Gib einer verbündeten Einheit Eifer.\n",
+   "flavor": "Du musst den Arm um fünf Grad rekalibrieren. - Ich soll was um wie bitte?"
+  },
+  {
+   "id": {
+    "art": 1577,
+    "card": 201523,
+    "audio": 1449
+   },
+   "attributes": {
+    "set": "BaseSet",
+    "type": "Unit",
+    "armor": 0,
+    "color": "Gold",
+    "power": 3,
+    "reach": 0,
+    "artist": "Anna Podedworna",
+    "rarity": "Legendary",
+    "faction": "Neutral",
+    "related": "",
+    "provision": 10,
+    "factionSecondary": ""
+   },
+   "name": "Geralt: Yrden",
+   "category": "Hexer",
+   "ability": "Einsatz (Nahkampf): Setze die Stärke von allen Einheiten in einer Reihe zurück.\nAdrenalin 2: Setze stattdessen die Stärke von allen Einheiten in einer verbündeten Reihe zurück.\n",
+   "flavor": "Er legte sich neben Addas mumifizierten Leichnam und zeichnete das Yrden-Zeichen auf die Innenseite ihres Sargdeckels."
+  },
+  {
+   "id": {
+    "art": 1615,
+    "card": 201626,
+    "audio": 1480
+   },
+   "attributes": {
+    "set": "BaseSet",
+    "type": "Unit",
+    "armor": 0,
+    "color": "Gold",
+    "power": 8,
+    "reach": 0,
+    "artist": "Lorenzo Mastroianni",
+    "rarity": "Legendary",
+    "faction": "Neutral",
+    "related": "203123",
+    "provision": 9,
+    "factionSecondary": ""
+   },
+   "name": "Ciri: Nova",
+   "category": "Hexer",
+   "ability": "Einsatz: Enthält dein Startdeck keine Karten mit Rekrutierungskosten von mindestens 10, erhalte Zähigkeit, Schild und Schleier.\nCiri: Nova und Goldener Nekker sind von diesem Zustand ausgenommen.\n",
+   "flavor": "Zireael besitzt große Macht, die sie nicht kontrollieren kann. Sie ist eine Gefahr für sich und andere. Bis sie lernt, sie zu kontrollieren, sollte sie isoliert bleiben."
+  },
+  {
+   "id": {
+    "art": 1641,
+    "card": 201772,
+    "audio": 1567
+   },
+   "attributes": {
+    "set": "BaseSet",
+    "type": "Unit",
+    "armor": 0,
+    "color": "Gold",
+    "power": 3,
+    "reach": 0,
+    "artist": "Dave Rapoza",
+    "rarity": "Legendary",
+    "faction": "Neutral",
+    "related": "",
+    "provision": 11,
+    "factionSecondary": ""
+   },
+   "name": "Geralt: Profi",
+   "category": "Hexer",
+   "ability": "Einsatz: Füge 3 Einheiten 1 Schaden zu. Wenn du einen weiteren Hexer kontrollierst, erhalte außerdem Eifer.\nBefehl: Füge einer gegnerischen Einheit 3 Schaden zu. Ist ihre Stärke durch 3 teilbar, zerstöre sie stattdessen.\n",
+   "flavor": "Ich erledigte einst einen Auftrag. Sollte meine Belohnung wählen und wählte das Gesetz der Überraschung."
+  },
+  {
+   "id": {
+    "art": 1909,
+    "card": 202294,
+    "audio": 1742
+   },
+   "attributes": {
+    "set": "Novigrad",
+    "type": "Unit",
+    "armor": 0,
+    "color": "Bronze",
+    "power": 5,
+    "reach": 0,
+    "artist": "Grafit Studio",
+    "rarity": "Common",
+    "faction": "Syndicate",
+    "related": "",
+    "provision": 4,
+    "factionSecondary": "Nilfgaard"
+   },
+   "name": "Kurier",
+   "category": "Mensch, Agent, Ungesehene",
+   "ability": "Einsatz (Nahkampf): Sieh dir die oberste(n) 3 Karte(n) im gegnerischen Deck an und verschiebe eine nach oben.\nEinsatz (Fernkampf): Sieh dir die oberste(n) 3 Karte(n) deines Decks an und verschiebe eine nach oben.\n",
+   "flavor": "Kriege werden nicht durch Stahl und Blut entschieden, sondern durch Informationen."
+  },
+  {
+   "id": {
+    "art": 1916,
+    "card": 202396,
+    "audio": 1909
+   },
+   "attributes": {
+    "set": "Iron Judgment",
+    "type": "Unit",
+    "armor": 2,
+    "color": "Gold",
+    "power": 3,
+    "reach": 0,
+    "artist": "Manuel Castanon",
+    "rarity": "Legendary",
+    "faction": "Neutral",
+    "related": "",
+    "provision": 9,
+    "factionSecondary": ""
+   },
+   "name": "Geralt: Axii",
+   "category": "Hexer",
+   "ability": "Einsatz: Ergreife eine Einheit, deren Stärke maximal der Anzahl verbündeter Hexer in dieser Reihe entspricht.\n",
+   "flavor": "Geralt legt den linken Arm um den Hals des Pferds, formt mit den Fingern der Rechten das Axii-Zeichen über dem Kopf des Tiers und flüstert die Beschwörungsformel."
+  },
+  {
+   "id": {
+    "art": 2284,
+    "card": 202572,
+    "audio": 1841
+   },
+   "attributes": {
+    "set": "BaseSet",
+    "type": "Ability",
+    "armor": 0,
+    "color": "Leader",
+    "power": 0,
+    "reach": 0,
+    "artist": "Marta Fleter",
+    "rarity": "Legendary",
+    "faction": "Monster",
+    "related": "132313",
+    "provision": 16,
+    "factionSecondary": ""
+   },
+   "name": "Unermesslicher Hunger",
+   "category": "Anführer",
+   "ability": "Befehl: Zerstöre eine verbündete Einheit. Generiere dann eine Ekimma in ihrer Reihe und verbessere sie um die Stärke des zerstörten Ziels.\nLadungen: 2.\n\nDiese Fähigkeit erhöht dein Decklimit für Rekrutierungskosten um 16.\n",
+   "flavor": ""
+  },
+  {
+   "id": {
+    "art": 2183,
+    "card": 202667,
+    "audio": 2033
+   },
+   "attributes": {
+    "set": "Master Mirror",
+    "type": "Unit",
+    "armor": 0,
+    "color": "Bronze",
+    "power": 3,
+    "reach": 0,
+    "artist": "Oleksandr Kozachenko",
+    "rarity": "Common",
+    "faction": "Nilfgaard",
+    "related": "",
+    "provision": 4,
+    "factionSecondary": ""
+   },
+   "name": "Wütende Meute",
+   "category": "Mensch",
+   "ability": "Einsatz: Füge einer gegnerischen Einheit 2 Schaden zu.\nVerschwörung: Verbessere diese Karte um 2.\n",
+   "flavor": "Was ihr Geheimnis ist? Sie sind einfach ständig wütend."
+  },
+  {
+   "id": {
+    "art": 2369,
+    "card": 202781,
+    "audio": 2127
+   },
+   "attributes": {
+    "set": "Way of the Witcher",
+    "type": "Unit",
+    "armor": 0,
+    "color": "Gold",
+    "power": 1,
+    "reach": 0,
+    "artist": "Oleksandr Kozachenko",
+    "rarity": "Legendary",
+    "faction": "Neutral",
+    "related": "",
+    "provision": 9,
+    "factionSecondary": ""
+   },
+   "name": "Geralt: Quen",
+   "category": "Hexer",
+   "ability": "Schild. \nEinsatz: Spiele eine Hexerkarte aus deinem Deck aus.\nAdrenalin 4: Gib ihr einen Schild.\n",
+   "flavor": "Der eiserne Geschmack von Blut machte sich in Geralts Mund bemerkbar. Er schrie einen Zauber, streckte die Handfläche vor und formte das Quen-Zeichen mit den Fingern."
+  }
+ ]
+}

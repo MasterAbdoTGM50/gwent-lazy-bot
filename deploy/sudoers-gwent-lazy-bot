@@ -1,0 +1,3 @@
+# Install as /etc/sudoers.d/gwent-lazy-bot (mode 440), then check with: sudo visudo -cf /etc/sudoers.d/gwent-lazy-bot
+# Lets the lazybot user restart its own service (used by the deploy script) and nothing else.
+lazybot ALL=(root) NOPASSWD: /usr/bin/systemctl restart gwent-lazy-bot, /usr/bin/systemctl status gwent-lazy-bot

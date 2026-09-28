@@ -1,0 +1,39 @@
+# Install: sudo install -m 644 deploy/gwent-lazy-bot.service /etc/systemd/system/
+#          sudo systemctl daemon-reload && sudo systemctl enable --now gwent-lazy-bot
+# Logs:    journalctl -u gwent-lazy-bot -f
+[Unit]
+Description=GWENT Lazy Bot (Discord)
+Wants=network-online.target
+After=network-online.target
+# Never stop retrying; the backoff below keeps retries polite.
+StartLimitIntervalSec=0
+
+[Service]
+User=lazybot
+Group=lazybot
+WorkingDirectory=/home/lazybot/gwent-lazy-bot
+ExecStart=/home/lazybot/.bun/bin/bun src/index.ts
+
+# Restart after crashes or memory-limit kills: 5s at first, backing off to 5 minutes on
+# repeated failures (e.g. a bad token, or no network at boot). Needs systemd >= 254.
+Restart=always
+RestartSec=5
+RestartSteps=10
+RestartMaxDelaySec=5min
+# The bot closes the Discord connection and SQLite cleanly on SIGTERM.
+TimeoutStopSec=15
+MemoryMax=512M
+
+# Sandboxing: everything is read-only except the data folder.
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/home/lazybot/gwent-lazy-bot/storage
+PrivateTmp=true
+PrivateDevices=true
+# Bun's transpiler cache would try to write under the read-only home; the bot is small enough
+# to transpile at startup.
+Environment=BUN_RUNTIME_TRANSPILER_CACHE_PATH=0
+
+[Install]
+WantedBy=multi-user.target
